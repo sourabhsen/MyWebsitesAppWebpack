@@ -20,7 +20,7 @@ validateEnvVariables();
 
 // Load Express
 import express from 'express';
-
+import swig from 'swig';
 import path from 'path';
 // Load Socket.io
 import socketio from 'socket.io';
@@ -87,8 +87,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Override with the X-HTTP-Method-Override header in the request. Simulate DELETE/PUT
 app.use(methodOverride('X-HTTP-Method-Override'));
 // Set the static files location /public/img will be /img for users
-app.use(express.static(__dirname + '/dist'));
+//app.use(express.static(__dirname + '/dist/client'));
+app.use(express.static(path.join(__dirname, '../client'))); 
+ 
+ // Register our templating engine
+app.engine('html', swig.renderFile);
 
+app.set('view engine', 'html');
+app.set('views', __dirname + './dist/client');
+app.set('view cache', false);
 
 // ## Passport JS
 

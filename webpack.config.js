@@ -4,7 +4,7 @@ var htmlwebplugin = require('html-webpack-plugin');
 module.exports = {
     entry:'./src/main.ts',
     output:{
-        path:'dist',
+        path:'dist/client',
         filename:'app.bundle.js'
     },
 

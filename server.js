@@ -9,4 +9,4 @@
 require("babel-register");
 
 // Load server configuration
-var app = require('./dist/server.conf.js');
+var app = require('./dist/server/server.conf.js');
