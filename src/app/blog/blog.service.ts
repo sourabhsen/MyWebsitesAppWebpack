@@ -13,6 +13,6 @@ export class BlogService{
   } 
   
   getBlogList(){
-     return this.http.get('/blogs');
+     return this.http.get('/api/blogs');
   }
 }
