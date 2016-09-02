@@ -1,5 +1,6 @@
 var webpack = require('webpack');
 var htmlwebplugin = require('html-webpack-plugin');
+var  CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
     entry:'./src/main.ts',
@@ -24,7 +25,12 @@ module.exports = {
     plugins:[
         new htmlwebplugin({
             template:'./src/index.html'
-        })
+        }),
+
+         new CopyWebpackPlugin([{
+            from: 'assets',
+            to: './assets'
+         }])
     ]
 
 }

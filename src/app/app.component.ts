@@ -1,5 +1,6 @@
 import {Component} from '@angular/core';
 
+
 import {LayoutComponent} from './layout/layout.component';
 
 @Component({
@@ -7,6 +8,7 @@ import {LayoutComponent} from './layout/layout.component';
   template: '<layout></layout>',
    directives: [LayoutComponent]    
 })
+
 export class AppComponent{
 
 }
