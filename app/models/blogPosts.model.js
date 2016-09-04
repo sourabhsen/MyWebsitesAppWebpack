@@ -7,7 +7,7 @@ let app = express();
 
 let  Schema = mongoose.Schema;
 
-let  BlogPostschema = new Schema({
+let  BlogPostschema = new mongoose.Schema({
     title:String,
     description:{type: String, required:true},
     link:String,
@@ -55,4 +55,4 @@ BlogPostschema.pre('save', function(next) {
 });
 
  
-export default mongoose.model('BlogPost', BlogPostschema);
+export default mongoose.model('BlogPost', BlogPostschema,'BlogPost');

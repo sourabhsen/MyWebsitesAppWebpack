@@ -1,19 +1,19 @@
-<!-- <div class="container">
+ <div class="container">
     <div class="row">
         <div class="col-md-7">
          
-            <div class="post text clearfix panel panel-default" *ngFor="#post of postItem" *ngIf="post">
+            <div class="post text clearfix panel panel-default" *ngFor="#post of postItem">
              <div class="panel-body">
-                <h2><a  [href]="post.pageUrl">
+                <h2><a>
                       {{post.title}}</a>
                         </h2>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date_label}}</p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on </p>
                 <hr>
                 <p>{{post.description}}</p>
                  <hr>
                 <div class="clearfix">
                 <p class="read_more_container pull-left col-xs-4">
-                    <a [href]="post.pageUrl" class="read_more">Keep reading</a>
+                    <a class="read_more">Keep reading</a>
                 </p>
                 
                 <p class="clearfix pull-right col-xs-6">
@@ -26,9 +26,9 @@
             </div>
             </div>
         
-            <div *ngIf="errorMessage">
+       <!--
                 <h2 class="text-danger">sorry somewent wrong , the blog is not loading due to some network problem</h2>
-            </div>
+            </div> -->
 
           
 
@@ -43,6 +43,6 @@
         </div>
     </div>
     <hr>
-</div> -->
+</div> 
 
 <h2>blog blog</h2>
