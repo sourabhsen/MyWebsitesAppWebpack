@@ -55,4 +55,8 @@ BlogPostschema.pre('save', function(next) {
 });
 
  
-export default mongoose.model('BlogPost', BlogPostschema,'BlogPost');
+ var BlogPost =  mongoose.model('BlogPost',BlogPostschema)
+
+ //export default mongoose.model('BlogPost', BlogPostschema,'BlogPost');
+
+module.exports  = BlogPost;

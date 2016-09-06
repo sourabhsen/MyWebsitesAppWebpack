@@ -15,4 +15,12 @@ export class BlogService{
   getBlogList(){
      return this.http.get('/api/blogs');
   }
+  getIncrementCount(blog:any){
+     console.log("item",blog);
+     return this.http.put('/api/blogs/'+ blog._id + '/upvote',{});
+  }
+  getDecrementCount(blog:any){
+    console.log("item",blog);
+      return this.http.put('/api/blogs/'+ blog._id + '/downvote',{});
+  }
 }

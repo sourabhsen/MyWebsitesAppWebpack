@@ -1,16 +1,19 @@
 var mongoose = require('mongoose');
 var express = require('express');
+var mongoosePaginate = require('mongoose-paginate');
 var app =  express();
 
 var BlogPost =  require('../dist/server/models/blogPosts.model');
 
-console.log(typeof BlogPost);
+
+
+//console.log(blog)
 
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/sourabhblog');
 
 
-db.BlogPost.save(
+/*db.BlogPost.save(
    [
      { 
          title: 'Start Bootstrap Moves to MIT Licensing',
@@ -21,10 +24,10 @@ db.BlogPost.save(
 
      } 
    ]
-)
+)  */
 
 
-var posts = [
+var posts = [ 
         new BlogPost({
             title: 'Start Bootstrap Moves to MIT Licensing',
             link:'http://www.google.com',
@@ -88,4 +91,4 @@ var posts = [
       });
      
     
-  }   
+  } 

@@ -4,16 +4,16 @@
          
             <div class="post text clearfix panel panel-default" *ngFor="#post of postItem">
              <div class="panel-body">
-                <h2><a>
+                <h2><a  [href]="post.pageUrl">
                       {{post.title}}</a>
                         </h2>
-                <p><span class="glyphicon glyphicon-time"></span> Posted on </p>
+                <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date_label}}</p>
                 <hr>
                 <p>{{post.description}}</p>
                  <hr>
                 <div class="clearfix">
                 <p class="read_more_container pull-left col-xs-4">
-                    <a class="read_more">Keep reading</a>
+                    <a [href]="post.pageUrl" class="read_more">Keep reading</a>
                 </p>
                 
                 <p class="clearfix pull-right col-xs-6">

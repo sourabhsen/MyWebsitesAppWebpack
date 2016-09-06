@@ -25,4 +25,26 @@ export class BlogComponent{
                }
           });
     }
+
+    incrementVote(blog:any){
+         let self = this;
+        this.blogService.getIncrementCount(blog).subscribe(function(response:any){
+            
+               self.postItem = JSON.parse(response._body);
+              if(!self.postItem.length){
+                  self.errorMessage = true;
+               }
+          });
+    }
+
+    decrementVote(blog:any){
+        let self = this;
+        this.blogService.getDecrementCount(blog).subscribe(function(response:any){
+            
+               self.postItem = JSON.parse(response._body);
+              if(!self.postItem.length){
+                  self.errorMessage = true;
+               }
+          });
+    }
 }
