@@ -7,7 +7,7 @@ import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutW
 @Component({
   selector:'home',
   template: require('./home.html'),
-  directives: [ProfileWidgetComponent,ProfileAboutWidgetComponent]    
+  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent]    
 })
 
 export class HomeComponent implements OnInit{
