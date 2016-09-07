@@ -7,7 +7,7 @@ let app = express();
 
 let  Schema = mongoose.Schema;
 
-let  BlogPostschema = new mongoose.Schema({
+let  blogpostschema = new Schema({
     title:String,
     description:{type: String, required:true},
     link:String,
@@ -18,19 +18,19 @@ let  BlogPostschema = new mongoose.Schema({
     upvotes:{type: Number, default: 0},
     downvotes:{type: Number, default: 0} 
 });
-BlogPostschema.methods.upvote = function (cb) {
+blogpostschema.methods.upvote = function (cb) {
     this.upvotes +=1;
     this.save(cb);
 }
-BlogPostschema.methods.downvote = function (cb) {
+blogpostschema.methods.downvote = function (cb) {
     this.downvotes -=1;
     this.save(cb);
 }
 
-BlogPostschema.plugin(mongoosePaginate);
+blogpostschema.plugin(mongoosePaginate);
 
 // on every save, add the date
-BlogPostschema.pre('save', function(next) {
+blogpostschema.pre('save', function(next) {
   // get the current date
   var currentDate = new Date();
   
@@ -55,8 +55,8 @@ BlogPostschema.pre('save', function(next) {
 });
 
  
- var BlogPost =  mongoose.model('BlogPost',BlogPostschema)
+ var Blog =  mongoose.model('blogpost',blogpostschema)
 
  //export default mongoose.model('BlogPost', BlogPostschema,'BlogPost');
 
-module.exports  = BlogPost;
+module.exports  = Blog;

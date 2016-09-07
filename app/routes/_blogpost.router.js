@@ -1,6 +1,6 @@
 
 // 
-import BlogPost from '../models/blogPosts.model';
+import blogpost from '../models/blogPosts.model';
 
 export default (app, router) => {
 
@@ -14,7 +14,7 @@ export default (app, router) => {
      .get((req, res) => {
 
       // Use mongoose to get all blog items in the database
-      BlogPost.find((err, blogpost) => {
+      blogpost.find((err, blogpost) => {
         console.log('result'+ blogpost);
         if(err)
           res.send(err);
@@ -28,7 +28,7 @@ export default (app, router) => {
 
     .put((req,res) => {
 
-        req.BlogPost.upvote((err,result) =>{
+        blogpost.upvote((err,result) =>{
              if(err){
                 res.send(err);
              }else{
@@ -47,7 +47,7 @@ export default (app, router) => {
 
     .put((req,res) => {
 
-        req.BlogPost.downvote(function(err,result){
+        blogpost.downvote(function(err,result){
              if(err){
                 res.send(err);
              }else{
