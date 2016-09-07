@@ -16,6 +16,7 @@ export class HomeComponent implements OnInit{
   }
 
   ngOnInit(){
+     // temporary code for removing loader
       window.$('body').addClass('grid-loaded');
   }
 }
