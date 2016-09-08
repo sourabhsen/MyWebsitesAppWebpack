@@ -13,6 +13,7 @@ export const MyAppRoutes = [
    {path:'',component:HomeComponent},
    {path:'profile',component:ProfileComponent},
    {path:'blog',component:BlogComponent},
-   {path:'work',component:MyWorkComponent}
+   {path:'work',component:MyWorkComponent},
+   {path:':code=',component:HomeComponent},
  
 ];

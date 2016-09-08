@@ -75,10 +75,12 @@ export default (app, router, passport) => {
 
   // Route to handle all Angular requests
   app.get('/', (req, res) => {
-
+    
+    let request_url ='https://www.linkedin.com/oauth/v2/authorization?response_type=code&client_id=75nwsrs8dwshgk&redirect_uri=http://localhost:3030&state=996302&scope=r_basicprofile';
     // Load our src/app.html file
     //** Note that the root is set to the parent of this folder, ie the app root **
-    res.render('index.html');
+     res.render('index.html');
+   // res.redirect(request_url);
     
   });
 
