@@ -3,11 +3,12 @@ import {window} from '@angular/platform-browser/src/facade/browser';
 import {ProfileComponent} from '../profile/profile.component';
 import {ProfileWidgetComponent} from '../profile-widget/profileWidget.component';
 import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutWidget.component';
+import {FeedComponent} from '../feed/feed.component';
 
 @Component({
   selector:'home',
   template: require('./home.html'),
-  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent]    
+  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent]    
 })
 
 export class HomeComponent implements OnInit{

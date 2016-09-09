@@ -11,7 +11,7 @@ export class ProfileService{
   API_URL: string =  'https://www.linkedin.com/oauth/v2/authorization';
   params: string;
   state: Number = 996302;
-  requestUrl: string = "http://localhost:3030";
+  requestUrl: string = "http://localhost:3030/profile";
   data: Array<Object>;
 
   constructor(private http:Http){
