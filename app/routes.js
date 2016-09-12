@@ -15,7 +15,10 @@ import todoRoutes from './routes/_todo.router.js';
 import recipeRoutes from './routes/_recipe.router.js';
 
 //Load our API routes for the 'blog posts' component
-import blogPostRouts from './routes/_blogpost.router.js';  
+import blogPostRoutes from './routes/_blogpost.router.js';  
+
+//Load our API routes for the 'blog posts' component
+import projectWorkRoutes from './routes/_projectwork.router.js';  
 
 export default (app, router, passport) => {
 
@@ -66,7 +69,9 @@ export default (app, router, passport) => {
 
 	recipeRoutes(app, router);
 
-  blogPostRouts(app,router);
+  blogPostRoutes(app,router);
+
+  projectWorkRoutes(app, router);
 
 	// All of our routes will be prefixed with /api
 	app.use('/api', router);
@@ -86,7 +91,8 @@ export default (app, router, passport) => {
 
    // Route to handle all Angular requests
   app.get('/*', (req, res) => {
-
+     console.log(req);
+     console.log(req.recipeRoutes)
     // Load our src/app.html file
     //** Note that the root is set to the parent of this folder, ie the app root **
     res.redirect('/');

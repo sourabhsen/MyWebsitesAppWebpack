@@ -7,8 +7,15 @@
 							<span class="grid__title">My Projects</span>
 						</a>
 					</li>
+				<!--	<li class="grid_item" *ngFor="#projectItem of Item" >
+						<a class="grid__link" [routerLink]="[projectItem.link]">
+							<img *ngFor="#img of projectItem.images" class="grid__img layer" src="/./assets/images/canvas.png"  alt="Canvas Dummy" />
+							<span class="grid__title">{{projectItem.title}}</span>
+						</a>
+					</li>  -->
+	
 					<li class="grid__item">
-						<a class="grid__link" href="https://dribbble.com/forefathers">
+						<a class="grid__link" [routerLink]="['/work/project1']">
 							<img class="grid__img layer" src="/./assets/images/canvas.png" alt="Canvas Dummy" />
 							<img class="grid__img layer" src="/./assets/images/wireframe.png" alt="Wireframe Dummy" />
 							<img class="grid__img layer" src="/./assets/images/Dribbble1/1.jpg" alt="01" />
@@ -63,7 +70,7 @@
 							<span class="grid__title">Forefathers</span>
 						</a>
 					</li>
-				<li class="grid__item">
+				     <li class="grid__item">
 						<a class="grid__link" href="https://dribbble.com/forefathers">
 							<img class="grid__img layer" src="/./assets/images/canvas.png" alt="Canvas Dummy" />
 							<img class="grid__img layer" src="/./assets/images/wireframe.png" alt="Wireframe Dummy" />
@@ -136,7 +143,8 @@
 							<img class="grid__img layer" src="/./assets/images/Dribbble1/4_1.jpg" alt="041" />
 							<span class="grid__title">Cosmin Capitanu</span>
 						</a>
-					</li>
+					</li> 
+					  
 				</ul>
 			</div>
 			

@@ -7,6 +7,7 @@ import {ProfileComponent} from './profile/profile.component';
 import {BlogComponent} from './blog/blog.component';
 import {MyWorkComponent} from './my-work/my-work.component.ts';
 import {LayoutComponent} from './layout/layout.component';
+import {MyWorkDetailComponent} from './my-work-detail/my-work-detail.component';
 
 export const MyAppRoutes = [
  
@@ -14,6 +15,7 @@ export const MyAppRoutes = [
    {path:'profile',component:ProfileComponent},
    {path:'blog',component:BlogComponent},
    {path:'work',component:MyWorkComponent},
-   {path:':code=',component:HomeComponent},
+   {path:'work/:id',component:MyWorkDetailComponent},
+   {path:'profile/:code=',component:HomeComponent},
  
 ];

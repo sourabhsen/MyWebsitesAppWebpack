@@ -21,7 +21,7 @@ export class AppComponent implements  OnInit, OnDestroy{
      constructor(private activatedRoute: ActivatedRoute){}
 
       ngOnInit() {
-        debugger;
+        
         this.code = this.activatedRoute.params.subscribe(params => {
            let code_id = params['code']; 
              alert(code_id);

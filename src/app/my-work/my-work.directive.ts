@@ -9,6 +9,7 @@ import {window} from '@angular/platform-browser/src/facade/browser';
 export class IsometricGrid implements OnInit  {
   max:number = 0;
   min:number = 0;
+  static msg:string = ""; 
  
 
   constructor(private el: ElementRef, private renderer: Renderer) {
@@ -20,8 +21,10 @@ export class IsometricGrid implements OnInit  {
   }
 
   ngOnInit() {
+      
         let self = this; 
          [].slice.call(document.querySelectorAll('.isolayer')).forEach(function(el) {
+                    debugger;
                     console.log('values',el);
                     console.log(this);
                     new window.IsoGrid(el, {
@@ -50,5 +53,6 @@ export class IsometricGrid implements OnInit  {
                 }); 
 
              console.log('isogrid need to call');
+            
   }
 }
