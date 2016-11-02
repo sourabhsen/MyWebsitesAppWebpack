@@ -18,11 +18,13 @@ export class ProfileComponent{
     getProfile(){
         let self = this;
         this.profile_service.getLinkedinProfile().subscribe(function(response:any){
-               self.postItem = JSON.parse(response._body);
-               console.log(self.postItem);
+             
+              self.postItem = JSON.parse(response._body);
+              console.log(self.postItem);
               if(!self.postItem.length){
                   self.errorMessage = true;
                }
+              
           });
     }
 }

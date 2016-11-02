@@ -3,8 +3,9 @@
     "configurations": [
         {
             "name": "Launch Chrome against localhost, with sourcemaps",
-            "type": "chrome",
+            "type": "node",
             "request": "launch",
+            "program": "${workspaceRoot}/dist/server/server.conf.js",
             "url": "http://localhost:3030",
             "sourceMaps": true,
             "webRoot": "${workspaceRoot}"

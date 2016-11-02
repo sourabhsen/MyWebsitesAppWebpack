@@ -17,6 +17,15 @@
 // Load user model
 import User from '../models/user.model.js';
 
+let stringify = require("json-stringify-safe");
+
+let https = require("https");
+let HttpsProxyAgent = require('https-proxy-agent');  
+let  request = require('request');  
+let proxy = 'http://localhost:3030/';  
+let agent = new HttpsProxyAgent(proxy); 
+
+
 // Load the Mongoose ObjectId function to cast string as
 // ObjectId
 let ObjectId = require('mongoose').Types.ObjectId;
@@ -150,4 +159,32 @@ export default (app, router, passport, auth, admin) => {
       res.sendStatus(204);
     });
   });
+
+   router.get('/linkedin', (req, res) => {
+
+    // If the user is authenticated, return a user object
+    // else return 0
+    console.log('entered');
+     
+     var options = {
+        url: 'https://api.linkedin.com/v1/people/~:(id,first-name,last-name,headline,picture-url,industry,summary,specialties,positions:(id,title,summary,start-date,end-date,is-current,company:(id,name,type,size,industry,ticker)),educations:(id,school-name,field-of-study,start-date,end-date,degree,activities,notes),associations,interests,num-recommenders,date-of-birth,publications:(id,title,publisher:(name),authors:(id,name),date,url,summary),patents:(id,title,summary,number,status:(id,name),office:(name),inventors:(id,name),date,url),languages:(id,language:(name),proficiency:(level,name)),skills:(id,skill:(name)),certifications:(id,name,authority:(name),number,start-date,end-date),courses:(id,name,number),recommendations-received:(id,recommendation-type,recommendation-text,recommender),honors-awards,three-current-positions,three-past-positions,volunteer)?oauth2_access_token=AQXlwglHTVGWAnV383iGjLhv6s3STgGAJ20U5Bg79UFJvQYaDo-CdJn8r2xZRWhjO6v2Uex3EXricCvA-MsVpTmHGtlocY1U8pRnS_WRKEtdfhcrpKP290aV014tcfUfdl6T43yMDBjhxNPpJnYbTw93HgmLQaiye_mwA4j6_3ScPnS553U&format=json',
+        headers: {
+          'User-Agent': 'request'
+        }
+      };
+      
+      function callback(error, response, body) {
+        if (!error && response.statusCode == 200) {
+          var info = JSON.parse(body);
+          res.json(info);
+          console.log(info.stargazers_count + " Stars");
+          console.log(info.forks_count + " Forks");
+        }
+      }
+      
+      request(options, callback);
+      console.log("ending");
+    
+  });
+
 };

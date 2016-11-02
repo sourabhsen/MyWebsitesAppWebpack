@@ -55,6 +55,8 @@
     "copy-webpack-plugin": "^3.0.1",
     "html-loader": "^0.4.3",
     "html-webpack-plugin": "^2.21.0",
+    "https": "^1.0.0",
+    "json-stringify-safe": "^5.0.1",
     "nodeman": "^1.1.2",
     "raw-loader": "^0.5.1",
     "rimraf": "^2.5.4",
