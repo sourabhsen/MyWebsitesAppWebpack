@@ -17,6 +17,8 @@
 // Load user model
 import User from '../models/user.model.js';
 
+import linkedIn from '../models/Linkedin/linkedin.model.js';
+
 let stringify = require("json-stringify-safe");
 
 let https = require("https");
@@ -176,9 +178,20 @@ export default (app, router, passport, auth, admin) => {
       function callback(error, response, body) {
         if (!error && response.statusCode == 200) {
           var info = JSON.parse(body);
-          res.json(info);
-          console.log(info.stargazers_count + " Stars");
-          console.log(info.forks_count + " Forks");
+          
+          var linked =  new linkedIn(info);
+            console.log("length",linked);
+            linked.save(function(err,result){
+                  console.log('saves sucessfully');
+                  console.log("result",result);
+                  console.log("error",err);
+              });
+          
+           res.json(info);
+        }else{
+           if(err){
+             res.sendStatus(500);
+           }
         }
       }
       
