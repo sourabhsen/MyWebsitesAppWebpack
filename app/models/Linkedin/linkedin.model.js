@@ -81,28 +81,28 @@ let  LinkedInschema = new Schema({
        ]
     },
     positions:{
-        _total:{type: Number},
+        _total: {type: Number},
         values:[
             {
                 company: {
                     id:{type:Number},
-                    industry: String,
-                    name:String,
-                    size: String,
-                    ticker:String,
-                    type: String
+                    industry: {type: String},
+                    name: {type: String},
+                    size: {type: String},
+                    ticker: {type: String},
+                    type: {type: String}
                 },
                 endDate:{
-                    month:{type:Number},
-                    year:{type:Number}
+                    month: {type:Number},
+                    year: {type:Number}
                 },
                 id:{type: Number},
                 isCurrent: Boolean,
                 startDate:{
-                    month:{type:Number},
-                    year:{type: Number}
+                    month: {type:Number},
+                    year: {type: Number}
                 },
-                title: String
+                title: {type: String}
                 
             }
         ]
@@ -164,59 +164,59 @@ let  LinkedInschema = new Schema({
         ]
     },
     threeCurrentPositions:{
-        _total:{type:Number},
+        _total: {type:Number},
         values:[
             {
                company:{
                    id:{type:Number},
-                   industry: String,
-                   name:String,
-                   size:String,
-                   type:String 
+                   industry: {type: String},
+                   name: {type: String},
+                   size: {type: String},
+                   type: {type: String} 
                 },
                 id:{type:Number},
                 isCurrent:Boolean,
                 location:{
                     country:{
-                        code:String,
-                        name:String
+                        code: {type: String},
+                        name: {type: String}
                     },
-                    name:String
+                    name: {type: String}
                 },
                 startDate:{
-                    month:{type:Number},
-                    year:{type:Number}
+                    month: {type:Number},
+                    year: {type:Number}
                 },
-                title:String
+                title: {type: String}
             }
         ]
     },
     threePastPositions:{
-        _total:{type:Number},
-        values:[
+        _total: {type: Number},
+        values: [
             {
                company:{
-                   id:{type:Number},
-                   industry: String,
-                   name:String,
-                   size:String,
-                   ticker:String,
-                   type:String 
+                   id: {type:Number},
+                   industry: {type: String},
+                   name: {type: String},
+                   size: {type: String},
+                   ticker: {type: String},
+                   type: {type: String} 
                },
                endDate:{
-                    month:{type:Number},
-                    year:{type:Number}
+                    month: {type:Number},
+                    year: {type:Number}
                },
-               id:{type:Number},
-               isCurrent:Boolean,
+               id: {type: Number},
+               isCurrent: Boolean,
                location:{
-                   name:String
+                   name: {type: String}
                },
                startDate:{
-                    month:{type:Number},
-                    year:{type:Number}
+                    month: {type: Number},
+                    year: {type: Number}
                },
-               title:String 
+               title: {type: String} 
             }
         ]
     },
