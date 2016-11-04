@@ -8,7 +8,7 @@ import {ProfileService} from './profile.service';
 })
 
 export class ProfileComponent{
-     postItem:Array<Object>;
+     public listItem:Array<Object>;
      errorMessage: boolean = false;
      
     constructor(private profile_service:ProfileService){
@@ -16,12 +16,11 @@ export class ProfileComponent{
     }
 
     getProfile(){
-        let self = this;
+       let self = this;
         this.profile_service.getLinkedinProfile().subscribe(function(response:any){
-             
-              self.postItem = JSON.parse(response._body);
-              console.log(self.postItem);
-              if(!self.postItem.length){
+              self.listItem = JSON.parse(response._body);
+              console.log(self.listItem);
+              if(!self.listItem.length){
                   self.errorMessage = true;
                }
               

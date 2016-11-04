@@ -13,18 +13,18 @@
                                     <img class="aoh" src="/./assets/images/avatar-dhg.png">
                                   </a>
 
-                                  <h5 class="qy">
-                                    <a class="aku" href="profile/index.html">Sourabh </a>
+                                  <h5 class="qy" >
+                                    <h4 class="aku" href="profile/index.html">{{listItem?.firstName}} {{listItem?.lastName}}</h4>
+                                    <h6 class="aku">{{listItem?.headline}}</h6>
                                   </h5>
 
                                  
-                                  <div class="qv rc sm sp" style="font-size:14px;">
-                                    <div class="qw">
-                                      <h5 class="ald">About <small>· <a href="#">Edit</a></small></h5>
-                                      <ul class="eb tb">
+                                  <div class="qv rc sm sp clearfix" style="font-size:14px;">
+                                    <div class="gz pull-left">
+                                      <ul class="eb tb" style="text-align:left;"> 
                                         <li><span class="dp h xh all"></span>Went to <a href="#">Oh, Canada</a>
-                                        </li><li><span class="dp h ajw all"></span>Became friends with <a href="#">Obama</a>
-                                        </li><li><span class="dp h abu all"></span>Worked at <a href="#">Github</a>
+                                        </li>
+                                        <li><span class="dp h abu all"></span>Industry <a href="#">{{listItem?.industry}}</a>
                                         </li><li><span class="dp h ack all"></span>Lives in <a href="#">San Francisco, CA</a>
                                         </li><li><span class="dp h adt all"></span>From <a href="#">Seattle, WA</a>
                                       </li></ul>
