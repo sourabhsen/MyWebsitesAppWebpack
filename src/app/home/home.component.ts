@@ -4,16 +4,26 @@ import {ProfileComponent} from '../profile/profile.component';
 import {ProfileWidgetComponent} from '../profile-widget/profileWidget.component';
 import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutWidget.component';
 import {FeedComponent} from '../feed/feed.component';
+import {HomeService} from './home.service';
 
 @Component({
   selector:'home',
   template: require('./home.html'),
+  providers:[HomeService],
   directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent]    
 })
 
 export class HomeComponent implements OnInit{
-  constructor(private element:ElementRef){
-       
+  listItem:Array<Object>;
+  errorMessage: boolean = false;
+  
+  constructor(private homeService:HomeService){
+    this.loadLikedInProfile();
+  }
+
+  loadLikedInProfile() {
+        let self = this;
+        this.homeService.loadLinkedin().subscribe(function(response:any){});
   }
 
   ngOnInit(){

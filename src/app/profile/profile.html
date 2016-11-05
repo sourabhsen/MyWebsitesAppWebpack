@@ -1,33 +1,38 @@
 <div class="anq" id="app-growl"></div>
 <div class="ans dj">
-    <div class="by">
+    <div class="by" style="position:relative;top:45px;">
 
         <div class="by amt">
             <div class="gc">
                 <div class="hl">
                     <div class="">
                            <div class="qv rc aog alu">
-                                <div class="qx" style="background-image: url('/./assets/images/instagram_1.jpg');"></div>
+                                
                                 <div class="qw dj">
                                   <a href="profile/index.html">
-                                    <img class="aoh" src="/./assets/images/avatar-dhg.png">
+                                    <img class="aoh" [src]="listItem?.pictureUrl">
                                   </a>
 
                                   <h5 class="qy" >
-                                    <h4 class="aku" href="profile/index.html">{{listItem?.firstName}} {{listItem?.lastName}}</h4>
+                                    <h4 class="aku">{{listItem?.firstName}} {{listItem?.lastName}}</h4>
                                     <h6 class="aku">{{listItem?.headline}}</h6>
                                   </h5>
 
                                  
                                   <div class="qv rc sm sp clearfix" style="font-size:14px;">
                                     <div class="gz pull-left">
-                                      <ul class="eb tb" style="text-align:left;"> 
-                                        <li><span class="dp h xh all"></span>Went to <a href="#">Oh, Canada</a>
+                                      <ul class="eb tb" style="text-align:left;font-size:13px;"> 
+                                        <li><span class="dp h xh all"></span><span>Name</span> <span><b>{{listItem?.firstName}} {{listItem?.lastName}}</b></span>
                                         </li>
-                                        <li><span class="dp h abu all"></span>Industry <a href="#">{{listItem?.industry}}</a>
-                                        </li><li><span class="dp h ack all"></span>Lives in <a href="#">San Francisco, CA</a>
-                                        </li><li><span class="dp h adt all"></span>From <a href="#">Seattle, WA</a>
-                                      </li></ul>
+                                         <li><span class="dp h xh all"></span><span>Birth</span> <span> <b>{{listItem?.dateOfBirth?.day}}/{{listItem?.dateOfBirth?.month}}/{{listItem?.dateOfBirth?.year}}</b></span>
+                                        </li>
+                                         <li><span class="dp h xh all"></span><span>LinkedIn Recommenders</span> <span> <b>{{listItem?.numRecommenders}}</b></span>
+                                        </li>
+                                        <li><span class="dp h abu all"></span><span>Industry</span> <span> <b>{{listItem?.industry}}</b></span>
+                                        </li><li><span class="dp h ack all"></span><span>Lives in</span><span><b>San Francisco, CA</b></span>
+                                        </li><li><span class="dp h adt all"></span><span>interests </span><span><b>{{listItem?.interests}}}</b></span>
+                                      </li>
+                                      </ul>
                                     </div>
                                   </div>
                                   
@@ -35,54 +40,204 @@
                         </div>       
       
                     </div>   
-                    <div>
+                    <div class="alu">
                          <li class="qf b aml">
                             <a class="qj" href="#">
-                              <img class="qh cu" src="/./assets/images/avatar-dhg.png">
+                              
                             </a>
                             <div class="qg">
                               <div class="qn">
-                                <small class="eg dp">4 min</small>
-                                <h5>Dave Gamache</h5>
+                                <h4>Summary</h4>
                               </div>
 
-                              <p>
-                                Aenean lacinia bibendum nulla sed consectetur. Vestibulum id ligula porta felis euismod semper. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras justo odio, dapibus ac facilisis in, egestas eget quam. Vestibulum id ligula porta felis euismod semper. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+                              <p style="text-align: left;word-break: break-word;">
+                               {{listItem?.summary}}
                               </p>
+                            </div>
+                          </li>
+                    </div> 
+                     <div class="alu">
+                      
+                         <li class="qf b aml" >
+                            <a class="qj" href="#">
+                             
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Publications</h4>
+                              </div>
+                              <div *ngFor="#item of listItem?.publications?.values">
+                                <h5><a href="#">{{item?.title}}</a></h5>
+                                <h6 class="pull-left">{{item?.publisher?.name}}</h6>
+                                <h6 class="pull-right">{{item?.date?.day}}/{{item?.date?.day}}/{{item?.date?.year}}</h6>
+                                <p style="text-align: left;word-break: break-word;clear:both;">
+                                  {{item?.summary}}
+                                </p>
+                              </div>
+                            </div>
+                          </li>
+                    </div> 
+                    <div class="alu">
+                         <li class="qf b aml">
+                            <a class="qj" href="#">
+                              
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Courses</h4>
+                              </div>
 
-                              <div class="any" data-grid="images"><div style="display: inline-block; margin-bottom: 10px; margin-right: 10px; vertical-align: bottom;">
-                                  <img data-action="zoom" data-height="700" data-width="1050" src="/./assets/images/unsplash_1.jpg" style="width: 273px; height: 183px;">
-                                </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
-                                  <img data-action="zoom" data-height="640" data-width="640" src="/./assets/images/instagram_1.jpg" style="width: 183px; height: 183px;">
-                                </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 10px; vertical-align: bottom;">
-                                  <img data-action="zoom" data-height="640" data-width="640" src="/./assets/images/instagram_13.jpg" style="width: 182px; height: 183px;">
-                                </div><div style="display: inline-block; margin-bottom: 10px; margin-right: 0px; vertical-align: bottom;">
-                                  <img data-action="zoom" data-height="700" data-width="1048" src="/./assets/images/unsplash_2.jpg" style="width: 274px; height: 183px;">
-                                </div></div>
-
-                              <ul class="qo alm">
-                                <li class="qf">
-                                  <a class="qj" href="#">
-                                    <img class="qh cu" src="/./assets/images/avatar-fat.jpg">
-                                  </a>
-                                  <div class="qg">
-                                    <strong>Jacon Thornton: </strong>
-                                    Donec id elit non mi porta gravida at eget metus. Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Donec ullamcorper nulla non metus auctor fringilla. Praesent commodo cursus magna, vel scelerisque nisl consectetur et. Sed posuere consectetur est at lobortis.
-                                  </div>
-                                </li>
-                                <li class="qf">
-                                  <a class="qj" href="#">
-                                    <img class="qh cu" src="/./assets/images/avatar-mdo.png">
-                                  </a>
-                                  <div class="qg">
-                                    <strong>Mark Otto: </strong>
-                                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.
-                                  </div>
-                                </li>
+                              <ul>
+                                  <h5 style="text-align: left;word-break: break-word;">
+                                      Karamvir Dadasaheb Kannamwar Engineering College, Nandanvan
+                                  </h5>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.courses?.values">
+                                   <span>{{item?.name}}</span>
+                                 </li>
                               </ul>
                             </div>
                           </li>
-                    </div>    
+                    </div> 
+                    <div class="alu">
+                         <li class="qf b aml">
+                            <a class="qj" href="#">
+                              
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Languages</h4>
+                              </div>
+                              <ul>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.languages?.values">
+                                   <div>
+                                      <strong>{{item?.language?.name}}</strong>
+                                      <p>
+                                        {{item?.proficiency?.level}}
+                                      </p>
+                                    </div>
+                                 </li>
+                              </ul>
+                            </div>
+                          </li>
+                    </div> 
+                     <div class="alu">
+                         <li class="qf b aml">
+                            <a class="qj" href="#">
+                              
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Skills & Endorsements</h4>
+                              </div>
+                              <ul class="qo aob aos">
+                                <li class="qf aoe alu" *ngFor="#item of listItem?.skills?.values">
+                                  <div class="qg">
+                                    <div class="aoc">
+                                       {{item?.skill?.name}}
+                                    </div>
+                                  </div>
+                                  <a class="qi" href="#">
+                                    <img class="cu qh" [src]="listItem?.pictureUrl">
+                                  </a>
+                                </li>
+                                
+                              </ul>
+                            </div>
+                          </li>
+                    </div>
+                     <div class="alu">
+                         <li class="qf b aml" >
+                            <a class="qj" href="#">
+                             
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Educations</h4>
+                              </div>
+                              <ul>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.educations?.values">
+                                   <h5 style="text-align: left;word-break: break-word;">
+                                     {{item?.schoolName}}
+                                  </h5>
+                                   <span>{{item?.degree}},{{item?.fieldOfStudy}}</span>
+                                   <h6 class="">{{item?.startDate?.year}} - {{item?.endDate?.year}}</h6>
+                                 </li>
+                              </ul>
+                            </div>
+                          </li>
+                    </div>
+                    <div class="alu">
+                         <li class="qf b aml" >
+                            <a class="qj" href="#">
+                             
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Certifications</h4>
+                              </div>
+                              <ul>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.certifications?.values">
+                                   <h5 style="text-align: left;word-break: break-word;">
+                                     {{item?.name}}
+                                  </h5>
+                                   <span>{{item?.authority?.name}}</span>
+                                   <h6 class="">{{item?.startDate?.year}}</h6>
+                                 </li>
+                              </ul>
+                            </div>
+                          </li>
+                    </div>
+                      <div class="alu">
+                         <li class="qf b aml" >
+                            <a class="qj" href="#">
+                             
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Volunteer</h4>
+                              </div>
+                              <ul class="alu" style="text-align:left;">
+                                  <h5 style="text-align: left;word-break: break-word;">
+                                      Opportunities you are looking for:
+                                  </h5>
+                                  <h5>How would you like to donate your time and talent?</h5>
+                                 <li style="text-align:left;">
+                                   preferred volunteering opportunitiesJoining a nonprofit board
+                                </li>
+                                <li style="text-align:left;">
+                                Edit preferred volunteering opportunitiesSkills-based volunteering (pro bono consulting)
+                                 </li>
+                              </ul>
+                               <ul>
+                                  <h5 style="text-align:left;word-break: break-word;">
+                                      Causes I care about::
+                                  </h5>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.volunteer?.causes?.values">
+                                    {{item?.name}}
+                                 </li>
+                              </ul>
+                            </div>
+                          </li>
+                    </div> 
+                     <div class="alu">
+                         <div class="qf b aml">      
+                          <h5 class="ald">Recommendations</h5>
+                          <ul class="qo anx">
+                            <li class="qf alm" *ngFor="#item of listItem?.recommendationsReceived?.values" >
+                              <a class="qj" href="#">
+                                <img class="qh cu" [src]="item?.recommender?.pictureUrl">
+                              </a>
+                              <div class="qg" style="text-align:left;">
+                                <strong>{{item?.recommender?.firstName}} {{item?.recommender?.lastName}}</strong>
+                                <h6>{{item?.recommender.headline}},{{item?.recommendationType?.code}}</h6>
+                                <div class="aoa">
+                                  <p>{{item?.recommendationText}}</p>
+                                </div>
+                              </div>
+                            </li>
+                          </ul>
+                          </div>
+                    </div>
                 </div>
                   <div class="gn">
                            <div class="qv rc alu ss">
