@@ -120,27 +120,28 @@
                             </div>
                           </li>
                     </div> 
-                     <div class="alu">
-                         <li class="qf b aml">
+                     
+                    <div class="alu">
+                         <li class="qf b aml" >
                             <a class="qj" href="#">
-                              
                             </a>
                             <div class="qg">
                               <div class="qn">
-                                <h4>Skills & Endorsements</h4>
+                                <h4>Work Experiences</h4>
                               </div>
-                              <ul class="qo aob aos">
-                                <li class="qf aoe alu" *ngFor="#item of listItem?.skills?.values">
-                                  <div class="qg">
-                                    <div class="aoc">
-                                       {{item?.skill?.name}}
-                                    </div>
-                                  </div>
-                                  <a class="qi" href="#">
-                                    <img class="cu qh" [src]="listItem?.pictureUrl">
-                                  </a>
-                                </li>
-                                
+                              <ul>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.threePastPositions?.values">
+                                   <h4 style="text-align: left;word-break: break-word;">
+                                       {{item?.title}}
+                                   </h4>
+                                   <h5 style="text-align: left;word-break: break-word;">
+                                     {{item?.company?.name}}
+                                  </h5>
+                                   <h6 class="">{{item?.startDate?.year}} - {{item?.endDate?.year}}</h6>
+                                   <span> <b>Size-</b>{{item?.company?.size}}, {{item?.company?.type}}</span>
+                                   <h6>{{item?.company?.industry}}</h6> 
+                                   <h6>{{item?.location?.name}}</h6>
+                                 </li>
                               </ul>
                             </div>
                           </li>
@@ -187,6 +188,31 @@
                             </div>
                           </li>
                     </div>
+                    <div class="alu">
+                         <li class="qf b aml">
+                            <a class="qj" href="#">
+                              
+                            </a>
+                            <div class="qg">
+                              <div class="qn">
+                                <h4>Skills & Endorsements</h4>
+                              </div>
+                              <ul class="qo aob aos">
+                                <li class="qf aoe alu" *ngFor="#item of listItem?.skills?.values">
+                                  <div class="qg">
+                                    <div class="aoc">
+                                       {{item?.skill?.name}}
+                                    </div>
+                                  </div>
+                                  <a class="qi" href="#">
+                                    <img class="cu qh" [src]="listItem?.pictureUrl">
+                                  </a>
+                                </li>
+                                
+                              </ul>
+                            </div>
+                          </li>
+                    </div>
                       <div class="alu">
                          <li class="qf b aml" >
                             <a class="qj" href="#">
@@ -219,6 +245,7 @@
                             </div>
                           </li>
                     </div> 
+
                      <div class="alu">
                          <div class="qf b aml">      
                           <h5 class="ald">Recommendations</h5>
@@ -229,7 +256,7 @@
                               </a>
                               <div class="qg" style="text-align:left;">
                                 <strong>{{item?.recommender?.firstName}} {{item?.recommender?.lastName}}</strong>
-                                <h6>{{item?.recommender.headline}},{{item?.recommendationType?.code}}</h6>
+                                <h6>{{item?.recommender?.headline}},{{item?.recommendationType?.code}}</h6>
                                 <div class="aoa">
                                   <p>{{item?.recommendationText}}</p>
                                 </div>

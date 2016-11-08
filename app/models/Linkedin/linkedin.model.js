@@ -146,7 +146,9 @@ let  LinkedInschema = new Schema({
                 recommender:{
                    firstName:String,
                    id:String,
-                   lastName:String 
+                   lastName:String,
+                   headline: String,
+                   pictureUrl: String 
                 }
 
             }
