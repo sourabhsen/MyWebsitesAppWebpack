@@ -15,7 +15,6 @@ export default (app, router) => {
 
       // Use mongoose to get all blog items in the database
       blogpost.find((err, blogpost) => {
-        console.log('result'+ blogpost);
         if(err)
           res.send(err);
 
@@ -27,20 +26,27 @@ export default (app, router) => {
     router.route('/blogs/:blog/upvote')
 
     .put((req,res) => {
-
+      
         blogpost.upvote((err,result) =>{
-             if(err){
-                res.send(err);
-             }else{
-                  BlogPost.find((err, blogpost) => {
-                  console.log('result'+ blogpost);
-                  if(err)
-                    res.send(err);
-                  else
-                    res.json(blogpost);
-                });
-             }
-        })
+              if (err) throw err;
+              else{
+                 console.log(result);
+                  // call the built-in save method to save to the database
+                 /* blogpost.save(function(err) {
+                    if (err) throw err;
+                    else{
+                         blogpost.find((err, blogpost) => {
+                            if(err)
+                              res.send(err);
+
+                            else
+                              res.json(blogpost);
+                          });
+                      }
+                  }); */
+              }
+        }) 
+      
     })
 
      router.route('/blogs/:blog/downvote')
@@ -51,13 +57,14 @@ export default (app, router) => {
              if(err){
                 res.send(err);
              }else{
-                  BlogPost.find((err, blogpost) => {
-                  console.log('result'+ blogpost);
+                 console.log(result);
+                /*  blogpost.find((err, response) => {
+                  console.log('result'+ response);
                   if(err)
                     res.send(err);
                   else
-                    res.json(blogpost);
-                });
+                    res.json(response);
+                }); */
              }
         })
     })

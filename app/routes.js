@@ -91,7 +91,7 @@ export default (app, router, passport) => {
 
    // Route to handle all Angular requests
   app.get('/*', (req, res) => {
-   
+     
     // Load our src/app.html file
     //** Note that the root is set to the parent of this folder, ie the app root **
     res.redirect('/');

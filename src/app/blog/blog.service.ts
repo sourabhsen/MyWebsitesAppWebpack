@@ -17,9 +17,11 @@ export class BlogService{
   }
   getIncrementCount(blog:any){
      console.log("item",blog);
+    
      return this.http.put('/api/blogs/'+ blog._id + '/upvote',{});
   }
   getDecrementCount(blog:any){
+  
     console.log("item",blog);
       return this.http.put('/api/blogs/'+ blog._id + '/downvote',{});
   }
