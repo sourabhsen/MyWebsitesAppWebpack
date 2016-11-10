@@ -4,7 +4,7 @@
          
             <div class="post text clearfix panel panel-default" *ngFor="#post of postItem">
              <div class="panel-body">
-                <h2><a  [href]="post.pageUrl">
+                <h2><a [routerLink]="post.pageUrl">
                       {{post.title}}</a>
                         </h2>
                 <p><span class="glyphicon glyphicon-time"></span> Posted on {{post.date_label}}</p>
@@ -44,5 +44,3 @@
     </div>
     <hr>
 </div> 
-
-<h2>blog blog</h2>

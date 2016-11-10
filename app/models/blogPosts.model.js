@@ -18,16 +18,7 @@ let  blogpostschema = new Schema({
     upvotes:{type: Number, default: 0},
     downvotes:{type: Number, default: 0} 
 });
-blogpostschema.statics.upvote = function (cb) {
-    this.upvotes +=1;
-    console.log("count",this.upvotes);
-    console.log("schema",this);
-   
-}
-blogpostschema.statics.downvote = function (cb) {
-    this.downvotes -=1;
-    return this.model('blogpost').find({}, cb);
-}
+
 
 blogpostschema.plugin(mongoosePaginate);
 

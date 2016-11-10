@@ -1,9 +1,11 @@
 import {Component} from '@angular/core';
 import {BlogService} from './blog.service';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 
 @Component({
     template:require('./blog.html'),
-    providers:[BlogService]
+    providers:[BlogService],
+     directives: [ROUTER_DIRECTIVES]
 })
 
 export class BlogComponent{

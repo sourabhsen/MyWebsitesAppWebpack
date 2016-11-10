@@ -25,4 +25,8 @@ export class BlogService{
     console.log("item",blog);
       return this.http.put('/api/blogs/'+ blog._id + '/downvote',{});
   }
+  getBlogDetails(blogId:string){
+     return this.http.get('/api/blogs/'+ blogId);
+  }
+
 }
