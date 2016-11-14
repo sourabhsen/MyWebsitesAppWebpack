@@ -31,8 +31,25 @@ var blogs = [
         new blogpost({
             title: 'Start Bootstrap Moves to MIT Licensing',
             link:'http://www.google.com',
-            description: 'All of the free templates and themes on Start Bootstrap are now licensed under the MIT license instead of Apache 2.0.' + 
-                  'The MIT license is simple, and it allows you to do just about anything you want with the templates.'
+            description: 'All of and it allows you to do just about anything you want with the templates.',
+            comments:
+                [
+                    {
+                        name:"Sourabh Sen",
+                        firstL:"S",
+                        comment:"All of the free templates and themes on Start anything you want with the templates."
+                    },
+                     {
+                        name:"Sourabh Sen",
+                        firstL:"S",
+                        comment:"All of the free templates and themes on Start anything you want with the templates."
+                    },
+                     {
+                        name:"Sourabh Sen",
+                        firstL:"S",
+                        comment:"All of the free templates and themes on Start anything you want with the templates."
+                    }
+                ]
         }),
         new blogpost({
             title: 'Start Bootstrap Templates Now Have Their Own Repo',

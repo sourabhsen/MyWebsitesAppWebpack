@@ -16,7 +16,15 @@ let  blogpostschema = new Schema({
     date_label:String,
     pageUrl:String,
     upvotes:{type: Number, default: 0},
-    downvotes:{type: Number, default: 0} 
+    downvotes:{type: Number, default: 0},
+    comments:
+        [
+            {
+                name:String,
+                firstL:String,
+                comment:String
+            }
+        ]
 });
 
 

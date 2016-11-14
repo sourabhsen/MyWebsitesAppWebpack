@@ -19,7 +19,7 @@ export default (app, router) => {
     });
   });
 
-  router.route('/blogs/blogId').get((req,res) => {
+  router.route('/blogs/:blogId').get((req,res) => {
     // Use mongoose to get particular blog items in the database
       blogpost.findById(req.params.blogId, function(err, blog) {
               if (err)
