@@ -1,6 +1,8 @@
 
 // 
+
 import blogpost from '../models/blogPosts.model';
+let fs = require('fs');
 
 export default (app, router) => {
 
@@ -65,7 +67,6 @@ export default (app, router) => {
             blogpost.find((err, blogpost) => {
               if(err)
                 res.send(err);
-
               else
                 res.json(blogpost);
             });

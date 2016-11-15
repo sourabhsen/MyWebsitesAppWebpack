@@ -44,12 +44,12 @@ router.get('/getlinkedIn',(req, res) =>{
       };
       
       function callback(error, response, body) {
-        console.log(options.url);
+        
         if (!error && response.statusCode == 200) {
           let info = JSON.parse(body);
           
           let linked =  new linkedIn(info);
-            console.log("length",linked);
+           
             linked.save(function(err,result){
                   console.log('saves sucessfully');
                   console.log("result",result);
@@ -65,14 +65,14 @@ router.get('/getlinkedIn',(req, res) =>{
       
       
       request(options, callback);
-      console.log("ending");
+     
 
 })
 
 router.get('/linkedin', (req, res) => {
      // Use mongoose to get all blog items in the database
       linkedIn.find((err, response) => {
-        console.log('result'+ response);
+       
         if(err)
           res.send(err);
         else

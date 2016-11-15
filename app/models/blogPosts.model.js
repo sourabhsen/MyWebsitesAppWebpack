@@ -3,6 +3,8 @@ import express from 'express';
 
 import mongoosePaginate from 'mongoose-paginate';
 
+let fs = require('fs');
+
 let app = express();
 
 let  Schema = mongoose.Schema;
@@ -14,6 +16,7 @@ let  blogpostschema = new Schema({
     created_at: Date,
     updated_at: Date,
     date_label:String,
+    img: { data: any ,contentType:String },
     pageUrl:String,
     upvotes:{type: Number, default: 0},
     downvotes:{type: Number, default: 0},
@@ -37,6 +40,13 @@ blogpostschema.pre('save', function(next) {
   
   // change the updated_at field to current date
   this.updated_at = currentDate;
+
+   let imgPath = '/./assets/images/avatar-dhg.png';
+   console.log('this.imag path',imgPath);
+
+
+   this.img.data = fs.readFileSync(imgPath);
+   this.img.contentType = 'image/png';
   
   //pageUrllink
   if(this._id && this.title){
