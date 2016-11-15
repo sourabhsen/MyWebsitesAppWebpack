@@ -10,13 +10,12 @@ export default (app, router) => {
 
   router.route('/blogs').get((req, res) => {
     // Use mongoose to get all blog items in the database
-    blogpost.find((err, blogpost) => {
-      if(err)
+    blogpost.find({}).sort({date_label: 'descending'}).exec((err, blogpost) => {
+       if(err)
         res.send(err);
-
       else
         res.json(blogpost);
-    });
+   });
   });
 
   router.route('/blogs/:blogId').get((req,res) => {
@@ -72,7 +71,7 @@ export default (app, router) => {
             });
         });
 
-    });
+      });
 
   })
 };
