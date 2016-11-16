@@ -4,13 +4,14 @@ import {ProfileComponent} from '../profile/profile.component';
 import {ProfileWidgetComponent} from '../profile-widget/profileWidget.component';
 import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutWidget.component';
 import {FeedComponent} from '../feed/feed.component';
+import {CarouselWidgetComponent} from '../carousel-widget/carousel-widget.component';
 import {HomeService} from './home.service';
 
 @Component({
   selector:'home',
   template: require('./home.html'),
   providers:[HomeService],
-  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent]    
+  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent]    
 })
 
 export class HomeComponent implements OnInit{

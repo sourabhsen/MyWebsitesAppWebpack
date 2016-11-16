@@ -16,9 +16,14 @@
 body {
 	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
 	color: #141715;
-	background: #D4D2E0;
+	background: #ededed;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
+
+body .pc{
+	background: #4ebcc4;
+	border:none;
 }
 
 a {
