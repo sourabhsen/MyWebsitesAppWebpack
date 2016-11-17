@@ -198,11 +198,12 @@
                                 <h4>Skills & Endorsements</h4>
                               </div>
                               <div id="chart1"  class="gz"></div>
+
                               <ul>
                                   <h5 style="text-align:left;word-break: break-word;">
                                         My Skills::
                                   </h5>
-                                 <li style="text-align:left;" *ngFor="#item of listItem?.skills?.values">
+                                 <li style="float: left;width: auto !important;margin: 0 6px 0 5px;list-style: none;" *ngFor="#item of listItem?.skills?.values">
                                      {{item?.skill?.name}}
                                  </li>
                               </ul>
