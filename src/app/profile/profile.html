@@ -197,18 +197,14 @@
                               <div class="qn">
                                 <h4>Skills & Endorsements</h4>
                               </div>
-                              <ul class="qo aob aos">
-                                <li class="qf aoe alu" *ngFor="#item of listItem?.skills?.values">
-                                  <div class="qg">
-                                    <div class="aoc">
-                                       {{item?.skill?.name}}
-                                    </div>
-                                  </div>
-                                  <a class="qi" href="#">
-                                    <img class="cu qh" [src]="listItem?.pictureUrl">
-                                  </a>
-                                </li>
-                                
+                              <div id="chart1"  class="gz"></div>
+                              <ul>
+                                  <h5 style="text-align:left;word-break: break-word;">
+                                        My Skills::
+                                  </h5>
+                                 <li style="text-align:left;" *ngFor="#item of listItem?.skills?.values">
+                                     {{item?.skill?.name}}
+                                 </li>
                               </ul>
                             </div>
                           </li>

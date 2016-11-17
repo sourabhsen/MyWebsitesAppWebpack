@@ -1,43 +1,21 @@
-import {Component, OnInit} from '@angular/core';
-import { Observable } from 'rxjs/Rx';
-
-import {ProfileService} from './profile.service';
-import {NewlinePipe} from '../../pipes/utility';
-
+import { Component, OnInit } from '@angular/core';
 import {window} from '@angular/platform-browser/src/facade/browser';
 
 
 @Component({
-    selector:'profile',
-    template:require('./profile.html'),
-    providers:[ProfileService],
-    pipes:[NewlinePipe]
+  selector: 'highchart',
+  template: require('./high-chart.html')
 })
 
-export class ProfileComponent implements OnInit{
-     public listItem:Array<Object>;
-      message$: Observable<string>;
-     errorMessage: boolean = false;
+export class highChartComponent implements OnInit{
+   
+   constructor(){
      
-    constructor(private profile_service:ProfileService){
-        this.getProfile();
-    }
+   }
 
-    getProfile(){
-       let self = this;
-        this.profile_service.getLinkedinProfile().subscribe(function(response:any){
-              self.listItem = JSON.parse(response._body);
-              
-              console.log(self.listItem);
-              if(!self.listItem.length){
-                  self.errorMessage = true;
-               }
-              
-          });
-    }
-
-     ngOnInit(){
-          window.Highcharts.chart('chart1', {
+   ngOnInit(){
+          debugger;
+           window.Highcharts.chart('container', {
 
                 chart: {
                     type: 'solidgauge',
@@ -168,5 +146,5 @@ export class ProfileComponent implements OnInit{
                     
             });
 
-     }
+   }
 }
