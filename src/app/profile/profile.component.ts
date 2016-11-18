@@ -14,43 +14,33 @@ import {window} from '@angular/platform-browser/src/facade/browser';
     pipes:[NewlinePipe]
 })
 
-export class ProfileComponent implements OnInit{
+export class ProfileComponent{
+     
      public listItem:Array<Object>;
-      message$: Observable<string>;
+     message$: Observable<string>;
      errorMessage: boolean = false;
+     backgroundArray:Array<Object>;
+     series:Array<Object>;
      
     constructor(private profile_service:ProfileService){
+        
         this.getProfile();
     }
 
     getProfile(){
        let self = this;
-        this.profile_service.getLinkedinProfile().subscribe(function(response:any){
-              self.listItem = JSON.parse(response._body);
-              
-              console.log(self.listItem);
-              if(!self.listItem.length){
-                  self.errorMessage = true;
-               }
-              
-          });
-    }
-
-     ngOnInit(){
-          window.Highcharts.chart('chart1', {
-
-                chart: {
+       let options ={
+               
+             chart: {
                     type: 'solidgauge',
                     marginTop: 50
-                },
-
+              },
                 title: {
                     text: 'Activity',
                     style: {
                         fontSize: '24px'
                     }
                 },
-
                 tooltip: {
                     borderWidth: 0,
                     backgroundColor: 'none',
@@ -66,8 +56,7 @@ export class ProfileComponent implements OnInit{
                         };
                     }
                 },
-
-                pane: {
+                 pane: {
                     startAngle: 0,
                     endAngle: -360,
                     background: [{ // Track for Move
@@ -85,15 +74,13 @@ export class ProfileComponent implements OnInit{
                         borderWidth: 0
                     }]
                 },
-
                 yAxis: {
                     min: 0,
                     max: 100,
                     lineWidth: 0,
                     tickPositions: []
                 },
-
-                plotOptions: {
+                   plotOptions: {
                     solidgauge: {
                         borderWidth: '24px',
                         dataLabels: {
@@ -103,8 +90,7 @@ export class ProfileComponent implements OnInit{
                         stickyTracking: false
                     }
                 },
-
-                series: [
+                series:  [
                       {
                         name: 'Move',
                         borderColor: '#40a0f0',
@@ -136,13 +122,23 @@ export class ProfileComponent implements OnInit{
                         }]
                     }
                 ]
-            },
 
-            /**
-             * In the chart load callback, add icons on top of the circular shapes
-             */
-            function callback() {
+          };
 
+        this.profile_service.getLinkedinProfile().subscribe(function(response:any){
+              self.listItem = JSON.parse(response._body);
+              console.log(self.listItem);
+              self.displaySkillsChart(options);
+              if(!self.listItem.length){
+                  self.errorMessage = true;
+               }
+              
+          });
+    }
+
+    displaySkillsChart(chartsOption){
+                window.Highcharts.chart('chart1',chartsOption,function(){
+                        
                 // Move icon
                 this.renderer.path([])
                     .attr({
@@ -165,8 +161,7 @@ export class ProfileComponent implements OnInit{
                         
                         'zIndex': 10
                     })
-                    
-            });
 
-     }
+                })
+    }
 }
