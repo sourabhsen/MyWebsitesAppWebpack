@@ -14,7 +14,7 @@ import {window} from '@angular/platform-browser/src/facade/browser';
     pipes: [NewlinePipe]
 })
 
-export class ProfileComponent {
+export class ProfileComponent implements OnInit{
 
     listItem: any;
     message$: Observable<string>;
@@ -23,12 +23,17 @@ export class ProfileComponent {
     series: Array<Object>;
     seriesDefaultItem: any;
     options: any;
+    profileOptions:any;
     myHighSkill:Array<string>;
     newSkills :Array<string>;
+    graphColor:Array<string>;
+    profileChart:any;
+    isProfile:boolean = false;
 
     constructor(private profile_service: ProfileService) {
         this.init();
         this.getLinkedInProfile();
+        window.$('body').removeClass('grid-loaded');
     }
 
     init() {
@@ -39,8 +44,141 @@ export class ProfileComponent {
 
         ];
 
-        this.newSkills = ['Angular1','Angular2','Webpack']
+        this.newSkills = ['Angular1','Angular2','Webpack'];
+        this.graphColor = ['#40a0f0','#286da5','#a1aeb5']; 
+        this.profileChart = {
+                chart: {
+                type: 'solidgauge',
+                marginTop: -50
+            },
+            title: {
+                
+            },
+            
+            pane: {
+                startAngle: 0,
+                endAngle: -360,
+                background: [{
+                        outerRadius: '0%',
+                        innerRadius: '0%',
+                        borderWidth: 0
+                }
+                ]
+            },
+            yAxis: {
+                min: 0,
+                max: 100,
+                lineWidth: 0,
+                tickPositions: []
+            },
+            plotOptions: {
+                solidgauge: {
+                    borderWidth: '10px',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    linecap: 'square',
+                    stickyTracking: false
+                }
+            },
+            series:  [
+                      {
+                       
+                        borderColor: '#40a0f0',
+                        strokelinecap:"square",
+                        data: [{
+                            color: '#ff0000',
+                            radius: '40%',
+                            innerRadius: '40%',
+                            y: 90
+                          
+                        }]
+                    }
+                ]
 
+        };
+        this.profileOptions ={
+             chart: {
+                type: 'solidgauge',
+                marginTop: -50
+            },
+            title: {
+                text: '',
+                style: {
+                    fontSize: '24px'
+                }
+            },
+            tooltip: {
+                borderWidth: 0,
+                backgroundColor: 'none',
+                shadow: false,
+                style: {
+                    fontSize: '12px'
+                },
+                pointFormat: '<div class="chart-msg">{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span></div>',
+                positioner: function (labelWidth) {
+                    return {
+                        x: 120,
+                        y: 0
+                    };
+                }
+            },
+            pane: {
+                startAngle: 0,
+                endAngle: -360,
+                background: [{
+                        outerRadius: '0%',
+                        innerRadius: '0%',
+                        borderWidth: 0
+                },
+                {
+                        outerRadius: '0%',
+                        innerRadius: '0%',
+                        borderWidth: 0
+                }
+                ]
+            },
+            yAxis: {
+                min: 0,
+                max: 100,
+                lineWidth: 0,
+                tickPositions: []
+            },
+            plotOptions: {
+                solidgauge: {
+                    borderWidth: '30px',
+                    dataLabels: {
+                        enabled: false
+                    },
+                    linecap: 'square',
+                    stickyTracking: false
+                }
+            },
+            series:  [
+                      {
+                        name: 'Profile Strength',
+                        borderColor: '#40a0f0',
+                        strokelinecap:"square",
+                        data: [{
+                            color: '#ff0000',
+                            radius: '90%',
+                            innerRadius: '90%',
+                            y: 70
+                          
+                        }]
+                    }, {
+                        name: 'Profile Vistors',
+                        borderColor: '#286da5',
+                        data: [{
+                            color: window.Highcharts.getOptions().colors[1],
+                            radius: '65%',
+                            innerRadius: '65%',
+                            y: 65
+                        }]
+                    }
+                ]
+                
+        }; 
         this.options = {
 
             chart: {
@@ -60,7 +198,7 @@ export class ProfileComponent {
                 style: {
                     fontSize: '16px'
                 },
-                pointFormat: '{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span>',
+                pointFormat: '<div class="chart-msg">{series.name}<br><span style="font-size:2em; color: {point.color}; font-weight: bold">{point.y}%</span></div>',
                 positioner: function (labelWidth) {
                     return {
                         x: 200 - labelWidth / 2,
@@ -119,8 +257,13 @@ export class ProfileComponent {
             let axis = 90;
 
             let seriesDefaultItem: any = {}
+
+            var new_index= 0;
             //To create arrary for background
-            self.listItem.skills.values.forEach(element => {
+            self.listItem.skills.values.forEach((element,index) => {
+              
+                
+
 
                 _self.options.pane.background.push(defaultItem);
 
@@ -147,12 +290,14 @@ export class ProfileComponent {
 
                 _self.options.series.push(seriesDefaultItem);
                 seriesDefaultItem = {};
-
+                
 
             });
 
-
+            _self.isProfile = true;
+             window.$('body').addClass('grid-loaded');
             _self.displaySkillsChart(_self.options);
+            
             if (!_self.listItem.length) {
                 _self.errorMessage = true;
             }
@@ -162,29 +307,21 @@ export class ProfileComponent {
 
     displaySkillsChart(chartsOption) {
         window.Highcharts.chart('chart1', chartsOption, function () {
-
-            // Move icon
-            this.renderer.path([])
-                .attr({
-                    'stroke-linecap': "butt",
-                    'zIndex': 10
-                })
-
-            // Exercise icon
-            this.renderer.path()
-                .attr({
-
-                    'zIndex': 10
-                })
-
-
-            // Stand icon
-            this.renderer.path()
-                .attr({
-
-                    'zIndex': 10
-                })
+          this.renderer.path([]).attr({'stroke-linecap': "butt",'zIndex': 10})
+          this.renderer.path().attr({ 'zIndex': 10})
+          this.renderer.path().attr({ 'zIndex': 10})
 
         })
+    }
+
+    ngOnInit(){
+          window.Highcharts.chart('chart2', this.profileOptions, function () {
+            this.renderer.path([]).attr({'stroke-linecap': "butt",'zIndex': 10})
+            this.renderer.path().attr({ 'zIndex': 10})
+            this.renderer.path().attr({ 'zIndex': 10})
+
+        })
+
+    
     }
 }

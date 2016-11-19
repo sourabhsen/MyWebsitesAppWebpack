@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 import { IsometricGrid } from './my-work.directive';
 import {MyWorkService} from './my-work.service';
+import {window} from '@angular/platform-browser/src/facade/browser';
+
 
 @Component({
  template:require('./my-work.html'),
@@ -15,6 +17,7 @@ export class MyWorkComponent{
      errorMessage: boolean = false;
 
     constructor(private workService:MyWorkService){
+       window.$('body').removeClass('grid-loaded');
        this.getProjectList();
     }
 

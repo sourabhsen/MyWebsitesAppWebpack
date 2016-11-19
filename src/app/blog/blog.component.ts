@@ -2,6 +2,8 @@ import {Component} from '@angular/core';
 import {BlogService} from './blog.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
+import {window} from '@angular/platform-browser/src/facade/browser';
+
 
 
 @Component({
@@ -17,6 +19,7 @@ export class BlogComponent{
 
     constructor(private blogService:BlogService){
         this.getBlog();
+         window.$('body').removeClass('grid-loaded');
     }
 
     getBlog(){
@@ -24,6 +27,7 @@ export class BlogComponent{
         this.blogService.getBlogList().subscribe(function(response:any){
             
                self.postItem = JSON.parse(response._body);
+                window.$('body').addClass('grid-loaded');
               if(!self.postItem.length){
                   self.errorMessage = true;
                }

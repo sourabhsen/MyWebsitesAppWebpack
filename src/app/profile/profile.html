@@ -1,3 +1,4 @@
+<div ng-if="isProfile">
 <div class="anq" id="app-growl"></div>
 <div class="ans dj">
     <div class="by" style="position:relative;top:45px;">
@@ -12,6 +13,7 @@
                                   <a href="profile/index.html">
                                     <img class="aoh" [src]="listItem?.pictureUrl">
                                   </a>
+                                  <div id="profilechart"></div>
 
                                   <h5 class="qy" >
                                     <h4 class="aku">{{listItem?.firstName}} {{listItem?.lastName}}</h4>
@@ -50,8 +52,8 @@
                                 <h4>Summary</h4>
                               </div>
 
-                              <p style="text-align: left;word-break: break-word;">
-                               {{listItem?.summary}}
+                              <p style="text-align: left;word-break: break-word;" [innerHTML] = "listItem?.summary | newline">
+                              
                               </p>
                             </div>
                           </li>
@@ -203,7 +205,7 @@
                                   <h5 style="text-align:left;word-break: break-word;">
                                         My Skills::
                                   </h5>
-                                 <li style="float: left;width: auto !important;margin: 0 6px 0 5px;list-style: none;" *ngFor="#item of listItem?.skills?.values">
+                                 <li style="float: left;width: auto !important;margin: 0 6px 0 5px;" *ngFor="#item of listItem?.skills?.values">
                                      {{item?.skill?.name}}
                                  </li>
                               </ul>
@@ -266,10 +268,8 @@
                   <div class="gn">
                            <div class="qv rc alu ss">
                                   <div class="qw">
-                                    <h5 class="ald">Sponsored</h5>
-                                    <div data-grid="images" data-target-height="150"><img class="qh" data-action="zoom" data-height="640" data-width="640" src="/./assets/images/instagram_2.jpg" style="width: 245px; height: 230px; margin-bottom: 10px; margin-right: 0px; display: inline-block; vertical-align: bottom;"></div>
-                                    <p><strong>It might be time to visit Iceland.</strong> Iceland is so chill, and everything looks cool here. Also, we heard the people are pretty nice. What are you waiting for?</p>
-                                    <button class="cg ts fx">Buy a ticket</button>
+                                    <h5 class="ald">Profile Strength Vs Profile Visitors</h5>
+                                       <div id="chart2"></div>
                                   </div>
                             </div>
                             <div class="qv rc alu ss">
@@ -310,4 +310,5 @@
             </div>
         </div>
     </div>
+</div>
 </div>

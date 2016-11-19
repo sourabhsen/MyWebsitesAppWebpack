@@ -368,31 +368,28 @@ body {
 }
 
 .curtain-bg{
-	height: 60%;
+	height: 100%;
     width: 100%;
     top: 0;
     background-image: url(/./assets/images/pg3_bottom.svg),url(/./assets/images/pg3_bottom.jpg);
     background-size: 200% 100%,100% 100%;
     transition: background 1.6s ease;
-	position: absolute;
+	position: fixed;
 }
 
 .curtain-bg_bottom {
-    height: 54%;
+    height: 100%;
     width: 100%;
-    bottom: 0;
+    top: 0;
     background-image: url(/./assets/images/pg3_bottom.svg);
     background-size: 200% 100%;
     background-position: right;
     -webkit-transform-origin: right center;
     -ms-transform-origin: right center;
     transform-origin: right center;
-    -webkit-transform: scaleX(0);
-    transform: scaleX(0);
-    -ms-transform: scaleX(.001);
     transition: -webkit-transform 0s 1s;
     transition: transform 0s 1s;
-	position: absolute;
+	position: fixed;
 }
 .carousel-control.left,.carousel-control.right{
 	background-image: none;
