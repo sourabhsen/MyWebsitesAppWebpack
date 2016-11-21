@@ -3,6 +3,7 @@ body {
 	position: absolute;
 	width:100%;
 	height:100%;
+	font-family: 'Josefin Sans',sans-serif;
 }
 
 .pseudo-scroller {
@@ -398,3 +399,108 @@ body {
 .carousel-inner{
 	height:286px;
 }
+
+/***********Carousel***********/
+
+.pg2_article h1 {
+    margin: auto 0 auto -50vmin;
+    left: 50%;
+    width: 100vh;
+    height: 15.4%;
+    font-family: 'Nothing You Could Do',cursive;
+    font-size: 8.6vmin;
+    white-space: nowrap;
+    text-align: center;
+    line-height: 140%;
+    color: #ff5f8c;
+    -webkit-transform: scale(1) translate3d(0,0,0);
+    transform: scale(1) translate3d(0,0,0);
+    transition: -webkit-transform 0s .8s;
+    transition: transform 0s .8s;
+}
+
+.typing_done .pg2_article h1 {
+    -webkit-transform: scale(.9) translate3d(0,-180%,0);
+    transform: scale(.9) translate3d(0,-180%,0);
+    transition: -webkit-transform ease .8s;
+    transition: transform ease .8s;
+    -webkit-animation-name: abbasWithCurtains;
+    /* animation-name: abbasWithCurtains; */
+    /* -webkit-animation-direction: normal; */
+    /* animation-direction: normal; */
+    -webkit-animation-duration: 1.6s;
+    animation-duration: 1.6s;
+    -webkit-animation-iteration-count: 1;
+    animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease;
+    animation-timing-function: ease;
+    -webkit-animation-delay: 1.6s;
+    animation-delay: 1.6s;
+    -webkit-animation-fill-mode: forwards;
+    animation-fill-mode: forwards;
+}
+.typing_done .pg2_article p {
+    opacity: 1;
+    -webkit-transform: scale(1) translateY(-52%);
+    -ms-transform: scale(1) translateY(-52%);
+    transform: scale(1) translateY(-52%);
+    transition: opacity ease .9s,-webkit-transform ease .8s;
+    transition: opacity ease .9s,transform ease .8s;
+}
+
+.pg2_article p {
+    position: absolute;
+    top: 17%;
+    bottom: 0;
+    right: .4%;
+    left: 0;
+    margin: auto;
+    width: 61%;
+    height: 25%;
+    text-align: justify;
+    font-size: 2.75vh;
+    color: #141414;
+    line-height: 4.2vh;
+    font-weight: 400;
+    opacity: 0;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
+    transform: scale(1.1);
+    transition: opacity .4s,-webkit-transform 0s 1s;
+    transition: opacity .4s,transform 0s 1s;
+}
+
+@-webkit-keyframes abbasWithCurtains {
+    0% {
+        left: 50%;
+        margin-left: -50vmin
+    }
+
+    46% {
+        left: 32%;
+        margin-left: -31vmin
+    }
+
+    100% {
+        left: 10%;
+        margin-left: -8vmin
+    }
+}
+
+@keyframes abbasWithCurtains {
+    0% {
+        left: 50%;
+        margin-left: -50vmin
+    }
+
+    46% {
+        left: 32%;
+        margin-left: -31vmin
+    }
+
+    100% {
+        left: 10%;
+        margin-left: -8vmin
+    }
+}
+
