@@ -11,3 +11,4 @@ export class NewlinePipe implements PipeTransform {
          return value.replace(/(?:\r\n|\r|\n)/g, '<br />');
     }
 }
+

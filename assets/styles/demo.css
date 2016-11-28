@@ -43,11 +43,13 @@
 .clearfix::after { clear: both; }
 
 body {
-	font-family: 'Avenir Next', Avenir, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+	
 	color: #141715;
 	background: #ededed;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
+	font-weight: 600;
 }
 
 body .pc{

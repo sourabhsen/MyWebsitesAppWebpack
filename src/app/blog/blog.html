@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-7">
          
-            <div class="post text clearfix panel panel-default" *ngFor="#post of postItem">
+            <div class="post text clearfix panel panel-default" *ngFor="let post of postItem | StartFrom:currentPage*pageSize | slice:pageSize">
              <div class="panel-body">
                 <h2><a [routerLink]="post.pageUrl">
                       {{post.title}}</a>
@@ -29,6 +29,9 @@
        <!--
                 <h2 class="text-danger">sorry somewent wrong , the blog is not loading due to some network problem</h2>
             </div> -->
+
+            <!-- pager -->
+          
 
           
 
