@@ -497,8 +497,8 @@ body {
 }
 
 .viewing_3.fixed.purpled .monster_wrapper_left {
-    -webkit-transform: translate3d(-75%,0,0);
-    transform: translate3d(-75%,0,0);
+    -webkit-transform: translate3d(-100%,-15px,0);
+    transform: translate3d(-100%,-15px,0);
 }
 
 .viewing_3.fixed.purpled .monster_wrapper_left .shade {
