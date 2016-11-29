@@ -15,5 +15,9 @@ export class MyWorkService{
   getProjectList(){
      return this.http.get('/api/projectlist');
   }
+
+  getProjectDescription(title:any){
+      return this.http.get('/api/projectlist/' + title);
+  }
   
 }

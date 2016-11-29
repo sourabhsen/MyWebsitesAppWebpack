@@ -22,4 +22,18 @@ export default (app, router) => {
       });
     });
 
+     router.route('/projectlist/:title')
+    
+     .get((req, res) => {
+
+      // Use mongoose to get all blog items in the database
+       projectwork.find({link:req.params.title}, function(err, response) {
+              if (err)
+                 res.send(err);
+              else
+                 res.json(response);
+      })
+      
+    });
+
 };

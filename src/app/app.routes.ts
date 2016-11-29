@@ -17,7 +17,7 @@ export const MyAppRoutes = [
    {path:'profile',component:ProfileComponent},
    {path:'blog',component:BlogComponent},
    {path:'work',component:MyWorkComponent},
-   {path:'work/:id',component:MyWorkDetailComponent},
+   {path:'work/:title',component:MyWorkDetailComponent},
    {path:'profile/:code=',component:HomeComponent},
    {path:'post/:id/:title',component:BlogDetailComponent},
    {path:'post/add',component:NewBlogComponent}
