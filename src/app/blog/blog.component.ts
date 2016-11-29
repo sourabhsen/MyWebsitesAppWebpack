@@ -10,7 +10,7 @@ import {window} from '@angular/platform-browser/src/facade/browser';
 
 @Component({
     template:require('./blog.html'),
-    providers:[BlogService],
+    providers:[BlogService,PagerService],
      directives: [ROUTER_DIRECTIVES]
 })
 
