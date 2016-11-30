@@ -11,7 +11,8 @@ let  projectworkschema = new Schema({
     description:{type: String, required:true},
     created_at: Date,
     date_label:String,
-    images:Array
+    images:Array,
+    displayImage:String
      
 });
 

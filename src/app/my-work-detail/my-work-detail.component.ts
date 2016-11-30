@@ -15,6 +15,7 @@ export class MyWorkDetailComponent{
   paramsSub: any;
   content:any;
   errorMessage:boolean;
+  projectImageGallery:Array<string>;
 
   constructor(private activatedRoute: ActivatedRoute,private workService:MyWorkService) { 
      
@@ -30,8 +31,15 @@ export class MyWorkDetailComponent{
 
   getProjectContent(projectTitle){   
       let self = this;
+      let imgPath = '';
         this.workService.getProjectDescription(projectTitle).subscribe(function(response:any){
                self.content = JSON.parse(response._body);
+            
+               self.content.images.forEach(element => {
+                   imgPath = "/./assets/images/work/"+ element + '.png';
+                   self.projectImageGallery.push(imgPath) 
+               });
+
               if(!self.content.length){
                   self.errorMessage = true;
                }
