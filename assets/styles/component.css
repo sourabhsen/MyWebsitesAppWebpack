@@ -406,7 +406,56 @@ body {
 	overflow: visible;
 }
 
+
+
+.multi-item-carousel .carousel-inner > .item {
+  transition: 500ms ease-in-out left;
+}
+
+.multi-item-carousel .carousel-inner  .item img {
+  height:100%;
+}
+
+.multi-item-carousel .carousel-inner .item  .rpl{
+    height: 270px;
+}
+
+.multi-item-carousel .carousel-inner .active.left {
+  left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+  left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .multi-item-carousel .carousel-inner > .item {
+    transition: 500ms ease-in-out all;
+    backface-visibility: visible;
+    transform: none!important;
+  }
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+  background-image: none;
+}
+
 /***********Carousel***********/
+.carousel-indicators .active {
+    background-color: #4ebcc4;
+}
+.carousel-indicators li {
+    border: 1px solid #4ebcc4;
+} 
+
+.carousel {
+    position: relative;
+    height: 100%;
+}
 
 .pg2_article h2,.pg3_article h2 {
     margin: auto 0 auto -76vmin;

@@ -1,13 +1,14 @@
 import {Component} from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { ROUTER_DIRECTIVES } from '@angular/router';
 import {FeedComponent} from '../feed/feed.component';
 import {MyWorkService} from '../my-work/my-work.service';
-
+import {window} from '@angular/platform-browser/src/facade/browser';
 
 @Component({
    template:require('./my-work-detail.html'),
    providers:[MyWorkService],
-   directives:[FeedComponent]
+   directives:[FeedComponent,ROUTER_DIRECTIVES]
 })
 
 export class MyWorkDetailComponent{
@@ -15,35 +16,75 @@ export class MyWorkDetailComponent{
   paramsSub: any;
   content:any;
   errorMessage:boolean;
+  projectList:any;
   projectImageGallery:Array<string>;
+ 
 
   constructor(private activatedRoute: ActivatedRoute,private workService:MyWorkService) { 
      
   }
 
    ngOnInit() {
-    let self = this; 
+    var self = this; 
     this.paramsSub = this.activatedRoute.params.subscribe(function(params){
        self.title = params['title'];
        self.getProjectContent(self.title); 
     });
+  
   }
 
   getProjectContent(projectTitle){   
       let self = this;
-      let imgPath = '';
-        this.workService.getProjectDescription(projectTitle).subscribe(function(response:any){
-               self.content = JSON.parse(response._body);
-            
-               self.content.images.forEach(element => {
-                   imgPath = "/./assets/images/work/"+ element + '.png';
-                   self.projectImageGallery.push(imgPath) 
-               });
-
+      let _self = this;
+      
+      //Main projects 
+      this.workService.getProjectDescription(projectTitle).subscribe(function(response:any){
+               var target = {};
+               Object.assign(target,JSON.parse(response._body)[0]);
+               self.content = target;
+               self.setImagePath(self.content);
               if(!self.content.length){
                   self.errorMessage = true;
                }
           });
+     //Related projects api
+     this.workService.getProjectList().subscribe(function(response:any){
+              self.projectList = JSON.parse(response._body);
+              self.setRelatedProjectsImageList(self.projectList);
+              if(!self.content.length){
+                  self.errorMessage = true;
+               }
+     });    
+  }
+
+  setRelatedProjectsImageList(arr){
+      let self = this;
+      var imgPath = '';
+      arr.forEach(element => {
+            imgPath = "/./assets/images/work/"+ element.displayImage + '.png';
+            element.displayImage = imgPath;
+      });
+      setTimeout(function(){
+           // Instantiate the Bootstrap carousel
+            window.$('.multi-item-carousel').carousel({
+              interval: false
+            });
+
+           window.$('.multi-item-carousel.carousel-inner .item:first-child').addClass('active');
+      },500);
+  }
+  setImagePath(arr){
+      let self = this;
+      var imgPath = '';
+      self.projectImageGallery = [];
+      arr.images.forEach(element => {
+                   imgPath = "/./assets/images/work/"+ element + '.png';
+                   self.projectImageGallery.push(imgPath); 
+      });
+      setTimeout(function(){
+          window.$('.carousel-inner .item:first-child').addClass('active');
+     },500);
+     
   } 
   
   ngOnDestroy() {

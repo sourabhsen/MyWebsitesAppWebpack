@@ -89,6 +89,7 @@ var projects = [
             description: 'All of the free templates and themes on Start Bootstrap are now licensed under the MIT license instead of Apache 2.0.' + 
                   'The MIT license is simple, and it allows you to do just about anything you want with the templates.',
             images:['west-4','wests-1','wests-2'] ,
+            displayImage:'west-4',
             created_at: "2017-08-10T17:53:55.433Z"
             
           }),

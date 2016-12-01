@@ -24,7 +24,6 @@ export class IsometricGrid implements OnInit  {
       
         let self = this; 
          [].slice.call(document.querySelectorAll('.isolayer')).forEach(function(el) {
-                    debugger;
                     console.log('values',el);
                     console.log(this);
                     new window.IsoGrid(el, {
