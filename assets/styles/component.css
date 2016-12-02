@@ -456,6 +456,7 @@ body {
 .carousel {
     position: relative;
     height: 100%;
+    z-index:99;
 }
 
 .pg2_article h2,.pg3_article h2 {
@@ -1219,4 +1220,11 @@ body {
     }
 }
 
+/** Css for Background Cnvas */
 
+#large-header{
+    position:absolute;
+    top:0;
+    opacity: 0.2;
+    z-index:1;
+}

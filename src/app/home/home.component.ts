@@ -41,12 +41,12 @@ export class HomeComponent implements OnInit{
     initAnimation();
 
     function initHeader() {
-        width = window.innerWidth;
-        height = window.innerHeight;
+        width = 1230;
+        height = 400;
         target = {x: 0, y: height};
 
         largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = height+'px';
+        largeHeader.style.height = 400+'px';
 
         canvas = document.getElementById('demo-canvas');
         canvas.width = width;
@@ -74,12 +74,12 @@ export class HomeComponent implements OnInit{
 
     function tweenTriangle(tri) {
         var t = Math.random()*(2*Math.PI);
-        var x = (200+Math.random()*100)*Math.cos(t) + width*0.5;
+        var x = (600+Math.random()*100)*Math.cos(t) + width*0.5;
         var y = (200+Math.random()*100)*Math.sin(t) + height*0.5-20;
         var time = 4+3*Math.random();
 
-        TweenLite.to(tri.pos, time, {x: x,
-            y: y, ease:Circ.easeOut,
+        window.TweenLite.to(tri.pos, time, {x: x,
+            y: y, ease:window.Circ.easeOut,
             onComplete: function() {
                 tri.init();
                 tweenTriangle(tri);
