@@ -33,7 +33,7 @@ export class HomeComponent implements OnInit{
 
       //Canvas header Code
         var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
-    var colors = ['72,35,68', '43,81,102', '66,152,103', '250,178,67', '224,33,48'];
+    var colors = ['220,220,220', '229,229,229', '153,153,153', '228,220,245', '153,158,150'];
 
     // Main
     initHeader();
@@ -41,12 +41,12 @@ export class HomeComponent implements OnInit{
     initAnimation();
 
     function initHeader() {
-        width = 1230;
-        height = 400;
+        width = window.$('.header-wrapper').width() + 60;
+        height = window.$('.header-wrapper').height() + 70;
         target = {x: 0, y: height};
 
         largeHeader = document.getElementById('large-header');
-        largeHeader.style.height = 400+'px';
+        largeHeader.style.height = height +'px';
 
         canvas = document.getElementById('demo-canvas');
         canvas.width = width;
@@ -98,8 +98,8 @@ export class HomeComponent implements OnInit{
     }
 
     function resize() {
-        width = window.innerWidth;
-        height = window.innerHeight;
+        width = window.$('.header-wrapper').width() + 60;
+        height = window.$('.header-wrapper').height() + 70;;
         largeHeader.style.height = height+'px';
         canvas.width = width;
         canvas.height = height;
@@ -143,13 +143,21 @@ export class HomeComponent implements OnInit{
         this.draw = function() {
             if(_this.alpha >= 0.005) _this.alpha -= 0.005;
             else _this.alpha = 0;
+
+            
+            
             ctx.beginPath();
             ctx.moveTo(_this.coords[0].x+_this.pos.x, _this.coords[0].y+_this.pos.y);
             ctx.lineTo(_this.coords[1].x+_this.pos.x, _this.coords[1].y+_this.pos.y);
             ctx.lineTo(_this.coords[2].x+_this.pos.x, _this.coords[2].y+_this.pos.y);
+             
             ctx.closePath();
             ctx.fillStyle = 'rgba('+_this.color+','+ _this.alpha+')';
+          
             ctx.fill();
+
+            
+
         };
 
         this.init = init;
