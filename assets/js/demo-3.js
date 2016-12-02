@@ -1,38 +1,6 @@
-import {Component,OnInit, ElementRef} from '@angular/core';
-import {window} from '@angular/platform-browser/src/facade/browser';
-import {ProfileComponent} from '../profile/profile.component';
-import {ProfileWidgetComponent} from '../profile-widget/profileWidget.component';
-import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutWidget.component';
-import {FeedComponent} from '../feed/feed.component';
-import {CarouselWidgetComponent} from '../carousel-widget/carousel-widget.component';
-import {HomeService} from './home.service';
+(function() {
 
-@Component({
-  selector:'home',
-  template: require('./home.html'),
-  providers:[HomeService],
-  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent]    
-})
-
-export class HomeComponent implements OnInit{
-  listItem:Array<Object>;
-  errorMessage: boolean = false;
-  
-  constructor(private homeService:HomeService){
-    this.loadLikedInProfile();
-  }
-
-  loadLikedInProfile() {
-        let self = this;
-        this.homeService.loadLinkedin().subscribe(function(response:any){});
-  }
-
-  ngOnInit(){
-     // temporary code for removing loader
-      window.$('body').addClass('grid-loaded');
-
-      //Canvas header Code
-        var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
+    var width, height, largeHeader, canvas, ctx, triangles, target, animateHeader = true;
     var colors = ['72,35,68', '43,81,102', '66,152,103', '250,178,67', '224,33,48'];
 
     // Main
@@ -154,8 +122,5 @@ export class HomeComponent implements OnInit{
 
         this.init = init;
     }
-
-
-      //End
-  }
-}
+    
+})();

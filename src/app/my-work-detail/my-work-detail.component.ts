@@ -70,6 +70,23 @@ export class MyWorkDetailComponent{
               interval: false
             });
 
+            // for every slide in carousel, copy the next slide's item in the slide.
+            // Do the same for the next, next item.
+            window.$('.multi-item-carousel .item').each(function(){
+              debugger;
+              var next = window.$(this).next();
+              if (!next.length) {
+                next = window.$(this).siblings(':first');
+              }
+              next.children(':first-child').clone(false).appendTo(window.$(this));
+              
+              if (next.next().length>0) {
+                next.next().children(':first-child').clone().appendTo(window.$(this));
+              } else {
+                window.$(this).siblings(':first').children(':first-child').clone().appendTo(window.$(this));
+              }
+            });
+
            window.$('.multi-item-carousel.carousel-inner .item:first-child').addClass('active');
       },500);
   }
