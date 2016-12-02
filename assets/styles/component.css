@@ -1294,6 +1294,10 @@ body {
     list-style: none;
 }
 
+.d-square:hover .skills-list.js ul{
+
+    margin: 0px 12px 0px 0px;
+}
 
 
 .hiring-skills{
