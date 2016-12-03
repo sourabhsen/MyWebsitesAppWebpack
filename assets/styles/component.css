@@ -1308,3 +1308,17 @@ body {
     float: none;
     width: 63%;
 }
+
+.profile-w{
+    padding:0 120px 50px 120px;
+}
+.profile-w span{
+    position: relative;
+    top:28px;
+}
+.profile-w .rate{
+    height:25px !important;
+}
+.myprof-w{
+ margin-top:120px;
+}
