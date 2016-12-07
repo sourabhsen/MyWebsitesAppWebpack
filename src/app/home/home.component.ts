@@ -7,11 +7,20 @@ import {FeedComponent} from '../feed/feed.component';
 import {CarouselWidgetComponent} from '../carousel-widget/carousel-widget.component';
 import {HomeService} from './home.service';
 
+import {MobileWidgetComponent} from '../svg/mobile';
+import {UIUXWidgetComponent} from '../svg/UI-UX';
+import {ProductWidgetComponent} from '../svg/productdesign';
+import {WebDesignWidgetComponent} from '../svg/webDesign';
+import {WebDevelopmentWidgetComponent} from '../svg/WebDevelopment';
+
+
 @Component({
   selector:'home',
   template: require('./home.html'),
   providers:[HomeService],
-  directives: [ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent]    
+  directives: [ ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent,
+                MobileWidgetComponent, UIUXWidgetComponent, ProductWidgetComponent,WebDesignWidgetComponent ,WebDevelopmentWidgetComponent  
+              ]    
 })
 
 export class HomeComponent implements OnInit{

@@ -1311,6 +1311,7 @@ body {
 
 .profile-w{
     padding:0 120px 50px 120px;
+    margin:bottom:0px;
 }
 .profile-w span{
     position: relative;
@@ -1321,4 +1322,42 @@ body {
 }
 .myprof-w{
  margin-top:120px;
+}
+
+.expertise-list{
+    width:20%;
+    min-height: 335px;
+    float: left;
+    list-style: none;
+}
+
+.expertise-list .list{
+    border-radius: 50%;
+    margin: 0 10px;
+    padding: 35px;
+    width:145px;
+    height: 145px;
+    border:2px solid #4ebcc4;
+
+    transition: background-color 1.2s ease 0s;
+}
+
+.expertise-list .list svg{
+    height: 100%;
+    display: block;
+    width: 100%;
+    fill: #4ebcc4;
+}
+
+.expertise-list .list:hover{
+   background: #4ebcc4;
+   fill: #000;
+}
+
+.expertise-list .list svg path{
+    fill:#000;
+}
+.expertise-list .sublist{
+    width: 170px;
+    text-align: center;
 }
