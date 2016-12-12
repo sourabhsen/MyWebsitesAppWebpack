@@ -7,8 +7,9 @@ import 'rxjs/add/operator/toPromise';
 
 export class BlogService{
   APT_KEY: string = '75nwsrs8dwshgk';
-
-  constructor(private http:Http){
+  private http:Http;
+  
+  constructor(){
       
   } 
   

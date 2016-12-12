@@ -1362,3 +1362,10 @@ body {
     width: 170px;
     text-align: center;
 }
+.owl-carousel{
+    display: block;
+}
+
+.owl-carousel .owl-item{
+    cursor: move;
+}

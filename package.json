@@ -13,7 +13,9 @@
     "postinstall": "typings install",
     "clean:client": "rimraf dist/client",
     "clean:server": "rimraf dist/server",
-    "clean:dist": "rimraf dist"
+    "clean:dist": "rimraf dist",
+    "pretest": "npm run build:dist",
+     "test": "karma start karma.conf.js"
   },
   "author": "",
   "license": "ISC",
