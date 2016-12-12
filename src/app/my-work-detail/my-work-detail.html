@@ -66,24 +66,19 @@
 
            
             <div class="col-md-12">
-            <div class="carousel slide multi-item-carousel" id="theCarousel">
-                <div class="carousel-inner">
-                    <div class="item col-xs-12" *ngFor="let item of projectList; let i = index">
+           
+                <div class="owl-carousel">
+                    <div class="item" *ngFor="let item of projectList; let i = index">
                      <div class="col-xs-4 rpl">
-                        <a [routerLink]="['/work/' + item?.link]" class="col-xs-4 rpl">
-                            <img class="img-responsive portfolio-item" style="height:100%;" [src]="item?.displayImage" [alt]="item?.title" />
+                        <a [routerLink]="['/work/' + item?.link]" class="rpl">
+                            <img class="img-responsive portfolio-item"  [src]="item?.displayImage" [alt]="item?.title" />
                         </a>
                      </div>
-                      <div class="col-md-8">
-                        <h3>Project Description</h3>
-                        <p>{{content?.description}}</p>
-                    </div> 
+                   
                     </div>
                 <!--  Example item end -->
                 </div>
-                <a class="left carousel-control" href="#theCarousel" data-slide="prev"><i class="glyphicon glyphicon-chevron-left"></i></a>
-                <a class="right carousel-control" href="#theCarousel" data-slide="next"><i class="glyphicon glyphicon-chevron-right"></i></a>
-            </div>
+            
             </div>
         
 

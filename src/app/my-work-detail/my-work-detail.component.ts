@@ -30,6 +30,8 @@ export class MyWorkDetailComponent{
        self.title = params['title'];
        self.getProjectContent(self.title); 
     });
+
+    
   
   }
 
@@ -64,31 +66,23 @@ export class MyWorkDetailComponent{
             imgPath = "/./assets/images/work/"+ element.displayImage + '.png';
             element.displayImage = imgPath;
       });
-      setTimeout(function(){
-           // Instantiate the Bootstrap carousel
-            window.$('.multi-item-carousel').carousel({
-              interval: false
-            });
 
-            // for every slide in carousel, copy the next slide's item in the slide.
-            // Do the same for the next, next item.
-            window.$('.multi-item-carousel .item').each(function(){
-              debugger;
-              var next = window.$(this).next();
-              if (!next.length) {
-                next = window.$(this).siblings(':first');
-              }
-              next.children(':first-child').clone(false).appendTo(window.$(this));
-              
-              if (next.next().length>0) {
-                next.next().children(':first-child').clone().appendTo(window.$(this));
-              } else {
-                window.$(this).siblings(':first').children(':first-child').clone().appendTo(window.$(this));
-              }
-            });
-
-           window.$('.multi-item-carousel.carousel-inner .item:first-child').addClass('active');
-      },500);
+       window.$('.owl-carousel').owlCarousel({
+        loop:true,
+        margin:10,
+        nav:true,
+        responsive:{
+            0:{
+                items:1
+            },
+            600:{
+                items:3
+            },
+            1000:{
+                items:5
+            }
+        }
+    })
   }
   setImagePath(arr){
       let self = this;

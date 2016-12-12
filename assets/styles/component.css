@@ -1311,7 +1311,7 @@ body {
 
 .profile-w{
     padding:0 120px 50px 120px;
-    margin:bottom:0px;
+    margin-bottom:0px;
 }
 .profile-w span{
     position: relative;
@@ -1328,6 +1328,7 @@ body {
     width:20%;
     min-height: 335px;
     float: left;
+    text-align: -webkit-center;
     list-style: none;
 }
 
