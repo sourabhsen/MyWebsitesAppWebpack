@@ -462,7 +462,7 @@ body {
 .pg2_article h2,.pg3_article h2 {
     margin: auto 0 auto -76vmin;
     left: 44%;
-    width: 100vh;
+    width: 100%;
     height: 15.4%;
     font-family: 'Nothing You Could Do',cursive;
     font-size: 40px;

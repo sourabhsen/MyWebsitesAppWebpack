@@ -50,7 +50,7 @@ export class HomeComponent implements OnInit{
                 initAnimation();
 
             function initHeader() {
-                width = window.$('.header-wrapper').width() + 60;
+                width = window.$('.header-wrapper').width();
                 height = window.$('.header-wrapper').height() + 70;
                 target = {x: 0, y: height};
 
@@ -107,7 +107,7 @@ export class HomeComponent implements OnInit{
             }
 
             function resize() {
-                width = window.$('.header-wrapper').width() + 60;
+                width = window.$('.header-wrapper').width();
                 height = window.$('.header-wrapper').height() + 70;;
                 largeHeader.style.height = height+'px';
                 canvas.width = width;
