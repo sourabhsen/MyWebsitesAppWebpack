@@ -2,7 +2,7 @@
     <div class="row">
         <div class="col-md-7">
          
-            <div class="post text clearfix panel panel-default" *ngFor="#post of postItem">
+            <div class="post text clearfix panel panel-default" *ngFor="let post of pagedItems | dateFilter; #i = index;">
              <div class="panel-body">
                 <h2><a [routerLink]="post.pageUrl">
                       {{post.title}}</a>
@@ -17,8 +17,8 @@
                 </p>
                 
                 <p class="clearfix pull-right col-xs-6">
-                    <a class="pull-right col-xs-3" (click)="incrementVote(post)"><span class="glyphicon glyphicon-thumbs-up"></span> {{post.upvotes}} </a>
-                    <a class="pull-right col-xs-3" (click)="decrementVote(post)"><span class="glyphicon glyphicon-thumbs-down"></span>{{post.downvotes}}</a>
+                    <a class="pull-right col-xs-3" (click)="incrementVote(i,post)"><span class="glyphicon glyphicon-thumbs-up"></span> {{post.upvotes}} </a>
+                    <a class="pull-right col-xs-3" (click)="decrementVote(i,post)"><span class="glyphicon glyphicon-thumbs-down"></span>{{post.downvotes}}</a>
 
                  </p>
                 </div>
@@ -26,11 +26,24 @@
             </div>
             </div>
         
-       <!--
-                <h2 class="text-danger">sorry somewent wrong , the blog is not loading due to some network problem</h2>
-            </div> -->
-
-            <!-- pager -->
+         <!-- pager -->
+            <ul *ngIf="pager.pages && pager.pages.length" class="pagination">
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(1)">First</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === 1}">
+                    <a (click)="setPage(pager.currentPage - 1)">Previous</a>
+                </li>
+                <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+                    <a (click)="setPage(page)">{{page}}</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.currentPage + 1)">Next</a>
+                </li>
+                <li [ngClass]="{disabled:pager.currentPage === pager.totalPages}">
+                    <a (click)="setPage(pager.totalPages)">Last</a>
+                </li>
+            </ul>
           
 
           

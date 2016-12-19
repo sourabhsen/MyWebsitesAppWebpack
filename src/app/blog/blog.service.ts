@@ -7,10 +7,9 @@ import 'rxjs/add/operator/toPromise';
 
 export class BlogService{
   APT_KEY: string = '75nwsrs8dwshgk';
-  private http:Http;
-  
-  constructor(){
-      
+ 
+
+  constructor(private http:Http){
   } 
   
   getBlogList(){

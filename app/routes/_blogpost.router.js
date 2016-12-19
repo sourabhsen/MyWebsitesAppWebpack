@@ -12,12 +12,16 @@ export default (app, router) => {
 
   router.route('/blogs').get((req, res) => {
     // Use mongoose to get all blog items in the database
-    blogpost.find({}).sort({date_label: 'descending'}).exec((err, blogpost) => {
+    blogpost.find({}).exec((err, blogpost) => {
        if(err)
+     {
+       console.log('blogs result',err);
         res.send(err);
-      else
+    }else{
+       console.log('blogs result',blogpost);
         res.json(blogpost);
-   });
+      } 
+  });
   });
 
   router.route('/blogs/:blogId').get((req,res) => {
@@ -41,13 +45,15 @@ export default (app, router) => {
       blog.save(function(err) {
           if (err)
               res.send(err);
-          // Use mongoose to get all blog items in the database
-          blogpost.find((err, blogpost) => {
-            if(err)
-              res.send(err);
-            else
-              res.json(blogpost);
-          });
+       
+       
+          blogpost.findById(req.params.blog, function(err, blog) {
+              if (err)
+                 res.send(err);
+              else
+                 res.json(blog);
+            })
+         
       });
     });
   })
@@ -64,12 +70,12 @@ export default (app, router) => {
                 res.send(err);
 
             // Use mongoose to get all blog items in the database
-            blogpost.find((err, blogpost) => {
-              if(err)
-                res.send(err);
+            blogpost.findById(req.params.blog, function(err, blog) {
+              if (err)
+                 res.send(err);
               else
-                res.json(blogpost);
-            });
+                 res.json(blog);
+            })
         });
 
       });

@@ -1,15 +1,18 @@
+import {window} from '@angular/platform-browser/src/facade/browser';
 import {Component} from '@angular/core';
-import {BlogService} from './blog.service';
 import { ROUTER_DIRECTIVES } from '@angular/router';
 
 import {PagerService} from '../../service/pager.service';
+import {BlogService} from './blog.service';
 
-import {window} from '@angular/platform-browser/src/facade/browser';
+import {DateFilter} from '../../pipes/dateFilter';
+
 
 
 
 @Component({
     template:require('./blog.html'),
+    pipes:[DateFilter],
     providers:[BlogService,PagerService],
      directives: [ROUTER_DIRECTIVES]
 })
@@ -29,43 +32,45 @@ export class BlogComponent{
      pagedItems: any[];
 
     constructor(private blogService:BlogService,private pagerService: PagerService){
-        this.getBlog();
+         this.getBlog();
          window.$('body').removeClass('grid-loaded');
     }
 
     getBlog(){
        let self = this;
-        this.blogService.getBlogList().subscribe(function(response:any){
+        this.blogService.getBlogList().subscribe((response:any) => {
             
-               self.postItem = JSON.parse(response._body);
-               self.allItems = JSON.parse(response._body);
+               this.postItem = JSON.parse(response._body);
+               this.allItems = JSON.parse(response._body);
                // initialize to page 1
-               self.setPage(1);
+               this.setPage(1);
                 window.$('body').addClass('grid-loaded');
-              if(!self.postItem.length){
-                  self.errorMessage = true;
+              if(!this.postItem.length){
+                  this.errorMessage = true;
                }
           });
     }
 
-    incrementVote(blog:any){
+    incrementVote(index:any, blog:any){
          let self = this;
-        this.blogService.getIncrementCount(blog).subscribe(function(response:any){
+        this.blogService.getIncrementCount(blog).subscribe((response:any) => {
             
-               self.postItem = JSON.parse(response._body);
-              if(!self.postItem.length){
-                  self.errorMessage = true;
+               this.postItem = JSON.parse(response._body);
+               this.pagedItems[index] = this.postItem;
+               if(!this.postItem.length){
+                   this.errorMessage = true;
                }
           });
     }
 
-    decrementVote(blog:any){
+    decrementVote(index:any,blog:any){
         let self = this;
-        this.blogService.getDecrementCount(blog).subscribe(function(response:any){
+        this.blogService.getDecrementCount(blog).subscribe((response:any) =>{
             
-               self.postItem = JSON.parse(response._body);
-              if(!self.postItem.length){
-                  self.errorMessage = true;
+               this.postItem = JSON.parse(response._body);
+               this.pagedItems[index] = this.postItem;
+              if(!this.postItem.length){
+                  this.errorMessage = true;
                }
           });
     }
