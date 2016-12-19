@@ -29,7 +29,7 @@ export class BlogService{
      return this.http.get('/api/blogs/'+ blogId);
   }
 
-  putBlogDetail(data:any){
+  postBlogDetail(data:any){
     return this.http.post('/api/blog/new',data);
   }
 

@@ -3,24 +3,24 @@
  <div class="jumbotron gz col-xs-7">
     <h2>Blog Template Driven Form</h2>
      <!-- Here we are declaring a local variable called “form” and setting it to an instance of ngForm. This is very important. Now our local form variable becomes of type FormGroup allowing us access to the FormGroup API’s on this local variable. We use this in the ngSubmit event where we send the value of the form via form.value -->
-    <form #form="ngForm" (ngSubmit)="submitBlogForm(form.value)">
+    <form #form="ngForm" name="blogForm" (ngSubmit)="submitBlogForm(blogForm)">
       <div class="form-group">
         <label>Title:</label>
         <!-- Since we are working with template driven forms, we can use the ngModel directive to capture the values of our forms. One thing to note if you are coming from Angular 1.x. Using ngModel as shown below creates a one-way data binding, so once we hit submit the data is only sent to the controller. If we wanted to use two-way data binding, we would have to wrap the ngModel in [()] and assign an attribute to it. Also the name of the field corresponds to the name attribute so our first input will be firstName. -->
-        <input type="text" class="form-control" placeholder="title" name="title" ngModel required>
+        <input type="text" class="form-control" placeholder="title" name="title" [(ngModel)]="blogForm.title" required>
       </div>
       <div class="form-group">
         <label>short description</label>
-        <input type="text" class="form-control" placeholder="sdescription" name="sdescription" ngModel required>
+        <textarea type="text" class="form-control" placeholder="sdescription" name="sdescription" [(ngModel)]="blogForm.sdescription" required/>
       </div>
        <div class="form-group">
         <label>Full description</label>
-        <input type="text" class="form-control" placeholder="fdescription" name="fdescription" ngModel required>
+        <textarea type="text" class="form-control" placeholder="fdescription" name="fdescription"  [(ngModel)]="blogForm.fdescription" required/>
       </div>
       <div class="form-group">
         <label>link:</label>
         <!-- Since we are working with template driven forms, we can use the ngModel directive to capture the values of our forms. One thing to note if you are coming from Angular 1.x. Using ngModel as shown below creates a one-way data binding, so once we hit submit the data is only sent to the controller. If we wanted to use two-way data binding, we would have to wrap the ngModel in [()] and assign an attribute to it. Also the name of the field corresponds to the name attribute so our first input will be firstName. -->
-        <input type="text" class="form-control" placeholder="link" name="link" ngModel required>
+        <input type="text" class="form-control" placeholder="link" name="link"  [(ngModel)]="blogForm.link" required>
       </div>
     
       <div class="form-group">

@@ -12,14 +12,20 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 })
 
 export class NewBlogComponent{
-    items: Array<any>;
+    blogForm: any;
     postItem:Array<Object>;
     errorMessage: boolean = false;
     
-    constructor(private blogService:BlogService){}
+    constructor(private blogService:BlogService){
+        this.blogForm = {};
+    }
+
 
    submitBlogForm(form:any) : void{
     console.log("component",form);   
+    this.blogService.postBlogDetail(form).subscribe((response:any) => {
+                
+     });
     
    }
 }

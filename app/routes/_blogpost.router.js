@@ -81,4 +81,35 @@ export default (app, router) => {
       });
 
   })
+ 
+
+  //post data submit
+  router.route('/api/blog/new').post((req,res) => {
+      blogpost.find({}).exec(req, function(err, blog) {
+        if (err)
+            res.send(err);
+
+        // save the bear
+        blog.save(function(err) {
+            if (err)
+                res.send(err);
+            
+             blogpost.find({}).exec((err, blogpost) => {
+                if(err)
+              {
+                  console.log('blogs result',err);
+                  res.send(err);
+              }else{
+                console.log('blogs result',blogpost);
+                  res.json(blogpost);
+                } 
+            });
+
+        });
+
+      });
+
+  })
+
+
 };
