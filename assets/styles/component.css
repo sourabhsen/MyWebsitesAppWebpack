@@ -1369,3 +1369,7 @@ body {
 .owl-carousel .owl-item{
     cursor: move;
 }
+
+ .by.amt.main-wrapper{
+    min-height: 400px;
+  }
