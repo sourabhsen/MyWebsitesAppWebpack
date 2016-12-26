@@ -1373,3 +1373,18 @@ body {
  .by.amt.main-wrapper{
     min-height: 400px;
   }
+
+.profile-pic{
+       height: 46px;
+    width: 60px;
+    margin-right: 25px;
+}  
+.profile-pic button{
+        border-radius: 100%;
+    width: 100%;
+    border: none;
+    background: transparent;
+}
+.profile-pic button img{
+    border-radius: 100%;
+}
