@@ -1310,8 +1310,9 @@ body {
 }
 
 .profile-w{
-    padding:0 120px 50px 120px;
-    margin-bottom:0px;
+    padding: 0 120px 50px 120px;
+    margin-bottom: 0px;
+    background: #fff;
 }
 .profile-w span{
     position: relative;
@@ -1321,7 +1322,8 @@ body {
     height:25px !important;
 }
 .myprof-w{
- margin-top:120px;
+ background: rgba(214, 12, 12, 0.075);
+ margin-bottom: 30px;   
 }
 
 .expertise-list{
@@ -1387,4 +1389,36 @@ body {
 }
 .profile-pic button img{
     border-radius: 100%;
+}
+
+.linkd-in{
+    margin-bottom: 20px;
+    list-style: none;
+    background: rgba(0,0,0,.075);
+    border-top: 4px solid #40a0f0;
+    z-index: 1040;
+}
+.linkd-in a{
+    width: 100px;
+    display: block;
+    margin: 0 auto;
+    height: 100spx;
+    top: -52px;
+    position: relative;
+    /* padding: 4px; */
+    /* border-top: 5px solid #40a0f0; */
+    /* border-left: 5px solid #40a0f0; */
+    border-radius: 54px;
+    /* border: 5px solid #40a0f0; */
+    
+}
+.linkd-in a img{
+    border-radius: 66px;
+    /* border-top: 5px solid #40a0f0; */
+    position: relative;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    /* top: -1px; */
+    /* left: -1px; */
 }

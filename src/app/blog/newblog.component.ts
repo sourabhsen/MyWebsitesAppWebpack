@@ -5,10 +5,8 @@ import { ROUTER_DIRECTIVES } from '@angular/router';
 
 
 @Component({
-    //template:require('./newblog.html'),
-    providers:[BlogService],
-    directives: [ROUTER_DIRECTIVES],
-     template : require('./newblog.html')
+    template:require('./newblog.html'),
+    providers:[BlogService]
 })
 
 export class NewBlogComponent{
@@ -17,7 +15,7 @@ export class NewBlogComponent{
     errorMessage: boolean = false;
     
     constructor(private blogService:BlogService){
-        this.blogForm = {};
+      //  this.blogForm = {};
     }
 
 
