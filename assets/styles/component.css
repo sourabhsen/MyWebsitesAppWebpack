@@ -381,6 +381,7 @@ body {
     background-size: 200% 100%,100% 100%;
     transition: background 1.6s ease;
 	position: fixed;
+    z-index: -1;
 }
 
 .curtain-bg_bottom {
@@ -396,6 +397,7 @@ body {
     transition: -webkit-transform 0s 1s;
     transition: transform 0s 1s;
 	position: fixed;
+    z-index: -1;
 }
 .carousel-control.left,.carousel-control.right{
 	background-image: none;
@@ -406,6 +408,9 @@ body {
 	overflow: visible;
 }
 
+.carousel-inner .item{
+    top:60px;
+}
 
 
 .multi-item-carousel .carousel-inner > .item {

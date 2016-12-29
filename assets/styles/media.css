@@ -5,6 +5,12 @@
 
 }
 
+@media (min-width: 1350px){
+ .hiring-skills {
+     width: 53%; 
+}
+}
+
 @media(max-width:1200px){
   .profile-w{
     padding-bottom: 17px;

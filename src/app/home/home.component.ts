@@ -1,5 +1,7 @@
 import {Component,OnInit, ElementRef} from '@angular/core';
 import {window} from '@angular/platform-browser/src/facade/browser';
+import { ROUTER_DIRECTIVES } from '@angular/router';
+
 import {ProfileComponent} from '../profile/profile.component';
 import {ProfileWidgetComponent} from '../profile-widget/profileWidget.component';
 import {ProfileAboutWidgetComponent} from '../profile-about-widget/profileAboutWidget.component';
@@ -18,7 +20,7 @@ import {WebDevelopmentWidgetComponent} from '../svg/WebDevelopment';
   selector:'home',
   template: require('./home.html'),
   providers:[HomeService],
-  directives: [ ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent,
+  directives: [ ROUTER_DIRECTIVES,ProfileComponent,ProfileWidgetComponent,ProfileAboutWidgetComponent,FeedComponent,CarouselWidgetComponent,
                 MobileWidgetComponent, UIUXWidgetComponent, ProductWidgetComponent,WebDesignWidgetComponent ,WebDevelopmentWidgetComponent  
               ]    
 })
