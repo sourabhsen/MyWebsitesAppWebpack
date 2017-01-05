@@ -12,11 +12,11 @@
 //import config from './config.js';
 
 var config = {
-                ENV : "development",
+                ENV : "production",
                 PORT : 3030,
                 MONGO_URI : {
                   DEVELOPMENT : "mongodb://localhost:27017/sourabhblog",
-                  PRODUCTION : "mongodb://localhost:27017/sourabhblog",
+                  PRODUCTION : "mongodb://user:root@ds054289.mlab.com:54289/portfolio",
                   TEST : "mongodb://localhost:27017/sourabhblog"
                 },
                 SESSION_SECRET : "8DC22F3A81E7A779ABECE4C23B917"   
@@ -64,7 +64,7 @@ function validateNodeEnvironment() {
 
     case 'production':
 
-      console.log(`Node environment set for ${process.env.NODE_ENV}`);
+      console.log(`Node production set for ${process.env.NODE_ENV}`);
       break;
 
     case 'test':
