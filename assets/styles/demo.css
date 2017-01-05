@@ -13,28 +13,28 @@
     font-family: 'Josefin Sans';
     font-style: normal;
     font-weight: 300;
-    src: local('Josefin Sans Light'),local('JosefinSans-Light'),url(http://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04zwV_pQ1T3xN3K1c3sB361us.ttf) format('truetype')
+    src: local('Josefin Sans Light'),local('JosefinSans-Light'),url(https://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04zwV_pQ1T3xN3K1c3sB361us.ttf) format('truetype')
 }
 
 @font-face {
     font-family: 'Josefin Sans';
     font-style: normal;
     font-weight: 400;
-    src: local('Josefin Sans'),local('JosefinSans'),url(http://fonts.gstatic.com/s/josefinsans/v9/xgzbb53t8j-Mo-vYa23n5onF5uFdDttMLvmWuJdhhgs.ttf) format('truetype')
+    src: local('Josefin Sans'),local('JosefinSans'),url(https://fonts.gstatic.com/s/josefinsans/v9/xgzbb53t8j-Mo-vYa23n5onF5uFdDttMLvmWuJdhhgs.ttf) format('truetype')
 }
 
 @font-face {
     font-family: 'Josefin Sans';
     font-style: normal;
     font-weight: 600;
-    src: local('Josefin Sans SemiBold'),local('JosefinSans-SemiBold'),url(http://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z1FZMcfX2SbzQ69I7OWmkGo.ttf) format('truetype')
+    src: local('Josefin Sans SemiBold'),local('JosefinSans-SemiBold'),url(https://fonts.gstatic.com/s/josefinsans/v9/C6HYlRF50SGJq1XyXj04z1FZMcfX2SbzQ69I7OWmkGo.ttf) format('truetype')
 }
 
 @font-face {
     font-family: 'Nothing You Could Do';
     font-style: normal;
     font-weight: 400;
-    src: local('Nothing You Could Do'),local('NothingYouCouldDo'),url(http://fonts.gstatic.com/s/nothingyoucoulddo/v6/jpk1K3jbJoyoK0XKaSyQAQB8Hyktk_aPnlUAWJgZcX8.ttf) format('truetype')
+    src: local('Nothing You Could Do'),local('NothingYouCouldDo'),url(https://fonts.gstatic.com/s/nothingyoucoulddo/v6/jpk1K3jbJoyoK0XKaSyQAQB8Hyktk_aPnlUAWJgZcX8.ttf) format('truetype')
 }
 
 
