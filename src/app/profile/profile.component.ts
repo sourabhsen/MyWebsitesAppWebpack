@@ -315,12 +315,12 @@ export class ProfileComponent implements OnInit{
     }
 
     ngOnInit(){
-          window.Highcharts.chart('chart2', this.profileOptions, function () {
-            this.renderer.path([]).attr({'stroke-linecap': "butt",'zIndex': 10})
-            this.renderer.path().attr({ 'zIndex': 10})
-            this.renderer.path().attr({ 'zIndex': 10})
+        //   window.Highcharts.chart('chart2', this.profileOptions, function () {
+        //     this.renderer.path([]).attr({'stroke-linecap': "butt",'zIndex': 10})
+        //     this.renderer.path().attr({ 'zIndex': 10})
+        //     this.renderer.path().attr({ 'zIndex': 10})
 
-        })
+        // }) 
 
     
     }
