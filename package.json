@@ -51,7 +51,7 @@
     "socket.io": "^1.4.8",
     "zone.js": "0.6.12",
     "underscore":"1.8.3",
-    "https-proxy-agent":"1.0.0",
+    "https-proxy-agent":"5.0.0",
     "request":"2.79.0",
     "typings": "^1.2.0",
     "babel": "^6.5.2",
