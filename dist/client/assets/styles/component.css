@@ -3,12 +3,12 @@ body {
 	position: absolute;
 	width:100%;
 	height:100%;
-	font-family: 'Josefin Sans',sans-serif;
+	font-family: 'Lato',sans-serif;
 	
 }
 
 .pseudo-scroller {
-	pointer-events: none;
+	pointer-events: none; 
 }
 
 .isolayer {
@@ -469,12 +469,11 @@ body {
     left: 44%;
     width: 100%;
     height: 15.4%;
-    font-family: 'Nothing You Could Do',cursive;
-    font-size: 40px;
+    font-family: inherit;
+    font-size: 48px;
     white-space: nowrap;
     text-align: center;
     line-height: 140%;
-    color: #4ebcc4;
     -webkit-transform: scale(1) translate3d(0,0,0);
     transform: scale(1) translate3d(0,0,0);
     transition: -webkit-transform 0s .5s;
@@ -487,9 +486,6 @@ body {
     transition: -webkit-transform ease .8s;
     transition: transform ease .8s;
     -webkit-animation-name: sWithCurtains;
-    /* animation-name: abbasWithCurtains; */
-    /* -webkit-animation-direction: normal; */
-    /* animation-direction: normal; */
     -webkit-animation-duration: 0.8s;
     animation-duration: 0.8s;
     -webkit-animation-iteration-count: 1;
@@ -533,7 +529,7 @@ body {
     width: 61%;
     height: 25%;
     text-align: justify;
-    font-size: 16px;
+    font-size: 20px;
     color: #141414;
     font-weight: 400;
     opacity: 0;
@@ -1242,25 +1238,30 @@ body {
     z-index:1;
 }
 
-.d-square{
-    width: 100px;
-    height: 100px;
-    float:left;
-    background:  #4ebcc4;
+.d-square {
+    width: 70px;
+    height: 70px;
+    float: left;
+    background: #c03a38;
     transform: rotateZ(45deg);
-    margin: 19px 0 0 41px;
+    margin: -14px 0 0 28px;
 }
+
+
+
 .d-square .skills-w{
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     position: relative;
-    top: 26px;
+    top: 27px;
     transform: rotateZ(-45deg);
     -webkit-transform: rotateZ(-45deg);
     -moz-transform: rotateZ(-45deg);
-    margin: 0px 14px 9px 29px;
+    margin: -12px 14px 5px 16px;
    
 }
+
+
 .d-square .skills-w img{
   width:100%;
   height:auto;

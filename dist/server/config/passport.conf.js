@@ -200,32 +200,30 @@ exports.default = function (passport) {
           // Return info message object
           { signupMessage: 'That username/email is already ' + 'taken.' });
         } else {
-          (function () {
 
-            // If there is no user with that email or username...
+          // If there is no user with that email or username...
 
-            // Create the user
-            var newUser = new _userModel2.default();
+          // Create the user
+          var newUser = new _userModel2.default();
 
-            // Set the user's local credentials
+          // Set the user's local credentials
 
-            // Combat case sensitivity by converting username and
-            // email to lowercase characters
-            newUser.local.username = username.toLowerCase();
+          // Combat case sensitivity by converting username and
+          // email to lowercase characters
+          newUser.local.username = username.toLowerCase();
 
-            newUser.local.email = req.body.email.toLowerCase();
+          newUser.local.email = req.body.email.toLowerCase();
 
-            // Hash password with model method
-            newUser.local.password = newUser.generateHash(password);
+          // Hash password with model method
+          newUser.local.password = newUser.generateHash(password);
 
-            // Save the new user
-            newUser.save(function (err) {
+          // Save the new user
+          newUser.save(function (err) {
 
-              if (err) throw err;
+            if (err) throw err;
 
-              return done(null, newUser);
-            });
-          })();
+            return done(null, newUser);
+          });
         }
       });
     });

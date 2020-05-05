@@ -1,7 +1,7 @@
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
-        value: true
+  value: true
 });
 
 var _recipe = require('../models/recipe.model');
@@ -12,132 +12,132 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = function (app, router) {
 
-        // ## Recipe API Routes
+  // ## Recipe API Routes
 
-        // Define routes for the `recipe` API
+  // Define routes for the `recipe` API
 
-        router.route('/recipe')
+  router.route('/recipe')
 
-        // ### Create a `recipe`
+  // ### Create a `recipe`
 
-        // Accessed at POST http://localhost:8080/api/recipe
+  // Accessed at POST http://localhost:8080/api/recipe
 
-        // Create a `recipe`
-        .post(function (req, res) {
+  // Create a `recipe`
+  .post(function (req, res) {
 
-                _recipe2.default.create({
+    _recipe2.default.create({
 
-                        title: req.body.title,
+      title: req.body.title,
 
-                        tags: req.body.tags,
+      tags: req.body.tags,
 
-                        rating: req.body.rating,
+      rating: req.body.rating,
 
-                        description: req.body.description,
+      description: req.body.description,
 
-                        ingredients: req.body.ingredients,
+      ingredients: req.body.ingredients,
 
-                        directions: req.body.directions
+      directions: req.body.directions
 
-                }, function (err, recipe) {
+    }, function (err, recipe) {
 
-                        if (err) res.send(err);
+      if (err) res.send(err);
 
-                        // DEBUG
-                        console.log('Recipe created: ' + recipe);
+      // DEBUG
+      console.log('Recipe created: ' + recipe);
 
-                        // return the new `recipe` to our front-end
-                        res.json(recipe);
-                });
-        })
+      // return the new `recipe` to our front-end
+      res.json(recipe);
+    });
+  })
 
-        // ### Get all of the `recipes`
+  // ### Get all of the `recipes`
 
-        // Accessed at GET http://localhost:8080/api/recipe
-        .get(function (req, res) {
+  // Accessed at GET http://localhost:8080/api/recipe
+  .get(function (req, res) {
 
-                // Use mongoose to get all recipes in the database
-                _recipe2.default.find(function (err, recipe) {
+    // Use mongoose to get all recipes in the database
+    _recipe2.default.find(function (err, recipe) {
 
-                        if (err) res.send(err);else res.json(recipe);
-                });
-        });
+      if (err) res.send(err);else res.json(recipe);
+    });
+  });
 
-        router.route('/recipe/:recipe_id')
+  router.route('/recipe/:recipe_id')
 
-        // ### Get a `recipe` by ID
+  // ### Get a `recipe` by ID
 
-        // Accessed at GET http://localhost:8080/api/recipe/:recipe_id
-        .get(function (req, res) {
+  // Accessed at GET http://localhost:8080/api/recipe/:recipe_id
+  .get(function (req, res) {
 
-                // Use mongoose to fetch a single `recipe` by id in the database
-                _recipe2.default.findOne(req.params.recipe_id, function (err, recipe) {
+    // Use mongoose to fetch a single `recipe` by id in the database
+    _recipe2.default.findOne(req.params.recipe_id, function (err, recipe) {
 
-                        if (err) res.send(err);else res.json(recipe);
-                });
-        })
+      if (err) res.send(err);else res.json(recipe);
+    });
+  })
 
-        // ### Update a `recipe` by ID
+  // ### Update a `recipe` by ID
 
-        // Accessed at PUT http://localhost:8080/api/recipe/:recipe_id
-        .put(function (req, res) {
+  // Accessed at PUT http://localhost:8080/api/recipe/:recipe_id
+  .put(function (req, res) {
 
-                // use our `recipe` model to find the `recipe` we want
-                _recipe2.default.findOne({
+    // use our `recipe` model to find the `recipe` we want
+    _recipe2.default.findOne({
 
-                        '_id': req.params.recipe_id
+      '_id': req.params.recipe_id
 
-                }, function (err, recipe) {
+    }, function (err, recipe) {
 
-                        if (err) res.send(err);
+      if (err) res.send(err);
 
-                        // Only update a field if a new value has been passed in
-                        if (req.body.title) recipe.title = req.body.title;
+      // Only update a field if a new value has been passed in
+      if (req.body.title) recipe.title = req.body.title;
 
-                        if (req.body.tags) recipe.tags = req.body.tags;
+      if (req.body.tags) recipe.tags = req.body.tags;
 
-                        if (req.body.rating) recipe.rating = req.body.rating;
+      if (req.body.rating) recipe.rating = req.body.rating;
 
-                        if (req.body.creator) recipe.creator = req.body.creator;
+      if (req.body.creator) recipe.creator = req.body.creator;
 
-                        if (req.body.description) recipe.description = req.body.description;
+      if (req.body.description) recipe.description = req.body.description;
 
-                        if (req.body.ingredients) recipe.ingredients = req.body.ingredients;
+      if (req.body.ingredients) recipe.ingredients = req.body.ingredients;
 
-                        if (req.body.directions) recipe.directions = req.body.directions;
+      if (req.body.directions) recipe.directions = req.body.directions;
 
-                        // save the `recipe`
-                        return recipe.save(function (err) {
+      // save the `recipe`
+      return recipe.save(function (err) {
 
-                                if (err) res.send(err);
+        if (err) res.send(err);
 
-                                return res.send(recipe);
-                        });
-                });
-        })
+        return res.send(recipe);
+      });
+    });
+  })
 
-        // ### Delete a `recipe` by ID
+  // ### Delete a `recipe` by ID
 
-        // Accessed at DELETE http://localhost:8080/api/recipe/:recipe_id
-        .delete(function (req, res) {
+  // Accessed at DELETE http://localhost:8080/api/recipe/:recipe_id
+  .delete(function (req, res) {
 
-                // DEBUG
-                console.log('Attempting to delete recipe with id: ' + req.params.recipe_id);
+    // DEBUG
+    console.log('Attempting to delete recipe with id: ' + req.params.recipe_id);
 
-                _recipe2.default.remove({
+    _recipe2.default.remove({
 
-                        _id: req.params.recipe_id
-                }, function (err, recipe) {
+      _id: req.params.recipe_id
+    }, function (err, recipe) {
 
-                        if (err) res.send(err);else console.log('Recipe successfully deleted!');
+      if (err) res.send(err);else console.log('Recipe successfully deleted!');
 
-                        _recipe2.default.find(function (err, recipes) {
-                                if (err) res.send(err);
+      _recipe2.default.find(function (err, recipes) {
+        if (err) res.send(err);
 
-                                res.json(recipes);
-                        });
-                });
-        });
+        res.json(recipes);
+      });
+    });
+  });
 };
 // */app/routes/_recipe.router.js*
 
