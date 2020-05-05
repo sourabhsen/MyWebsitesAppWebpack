@@ -4,10 +4,10 @@
   "description": "website of my portal",
   "main": "index.js",
   "engines": {
-    "node": "10.14.x"
+    "node": "10.14.2"
   },
   "scripts": {
-    "start": "node server.js",
+    "start": "npm run serve",
     "build:dist": "npm run build:server & npm run build:dev",
     "build:server": "babel -d ./dist/server ./app -s",
     "serve": "webpack-dev-server --inline --progress",
