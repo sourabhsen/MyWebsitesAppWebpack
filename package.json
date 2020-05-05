@@ -75,5 +75,9 @@
     "webpack-dev-server": "^3.10.3",
     "zone.js": "0.6.12"
   },
-  "devDependencies": {}
+  "devDependencies": {
+    "@types/core-js": "^2.5.3",
+    "@types/node": "^13.13.4",
+    "@types/underscore": "^1.10.0"
+  }
 }
