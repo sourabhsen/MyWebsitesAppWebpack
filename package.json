@@ -70,7 +70,7 @@
     "ts-loader": "^0.8.2",
     "typescript": "^1.8.10",
     "typings": "^1.2.0",
-    "underscore": "1.8.3",
+    "underscore": "1.12.1",
     "webpack": "^4.43.0",
     "webpack-dev-server": "^3.10.3",
     "zone.js": "0.6.12"
